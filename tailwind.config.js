@@ -3,6 +3,8 @@ module.exports = {
   purge: [
     './src/**/*.jsx',
     './src/**/*.js',
+    './src/**/*.ts',
+    './src/**/*.tsx',
   ],
   darkMode: false,
   theme: {
