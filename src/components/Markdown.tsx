@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 interface MarkdownProp {
   htmlContent: string;
-  className: string;
+  className?: string;
 }
 
 function Markdown({ htmlContent, className }: MarkdownProp) {

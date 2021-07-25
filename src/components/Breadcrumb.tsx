@@ -3,7 +3,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 interface BreadcrumbItemProp {
-  children: React.ReactChildren;
+  children: React.ReactNode;
   className: string;
   to: string;
 }
@@ -33,7 +33,7 @@ function BreadcrumbItem({ children, className, to }: BreadcrumbItemProp): React.
 }
 
 interface BreadcrumbProp {
-  children: React.ReactChildren;
+  children: React.ReactNode;
   className: string;
 }
 

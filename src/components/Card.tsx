@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 interface CardProp {
-  children: React.ReactChildren;
+  children: React.ReactNode;
   className: String;
 }
 

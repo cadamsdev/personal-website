@@ -9,7 +9,7 @@ import { getAllBlogs, getProjectBySlug } from '../../lib/api';
 import { Project } from '../interfaces/project';
 
 interface FeaturedProjectProps {
-  project: Project;
+  project: Partial<Project>;
 }
 
 function FeaturedProject({ project }: FeaturedProjectProps) {

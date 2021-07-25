@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 interface ContentLayoutProp {
-  children: React.ReactChildren;
+  children: React.ReactNode;
 }
 
 function ContentLayout({ children }: ContentLayoutProp) {
