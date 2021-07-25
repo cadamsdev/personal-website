@@ -35,10 +35,6 @@ const BlogCard = ({ blog }: BlogCardProps) => (
               dateString={blog.date}
               formatString="MMM d, yyyy"
             />
-
-            <div className="inline-block text-sm text-gray-500">
-              {`(${blog.ago})`}
-            </div>
           </div>
         </div>
 
