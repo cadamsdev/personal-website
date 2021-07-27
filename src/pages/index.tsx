@@ -17,14 +17,17 @@ function FeaturedProject({ project }: FeaturedProjectProps) {
       <h1 className="text-3xl sm:text-4xl font-bold mb-4 underline text-center">
         Featured Project
       </h1>
-      <img
-        className="mb-2"
-        src={project.previewImage}
-        alt="preview"
-        style={{
-          maxHeight: '256px',
-        }}
-      />
+      <div className="mb-2">
+        <img
+          className="m-auto"
+          src={project.previewImage}
+          alt="preview"
+          style={{
+            maxHeight: '256px',
+          }}
+        />
+      </div>
+
       <Link href={`/projects/${project.slug}`}>
         <DecoratedLink className="text-center" text={project.title} />
       </Link>
@@ -124,13 +127,22 @@ export default function Page({ featuredProject, recentBlogs }: PageProps) {
 
       <Layout>
         <div className="flex-grow bg-white p-2">
-          <div className='flex justify-center items-center' style={{ height: "calc(100vh - 64px)" }}>
+          <div
+            className="flex justify-center items-center"
+            style={{ height: 'calc(100vh - 64px)' }}
+          >
             <Intro />
           </div>
-          <div className='flex justify-center items-center' style={{ height: "calc(100vh - 64px)" }}>
+          <div
+            className="flex justify-center items-center"
+            style={{ height: 'calc(100vh - 64px)' }}
+          >
             <FeaturedProject project={featuredProject} />
           </div>
-          <div className='flex justify-center items-center' style={{ height: "calc(100vh - 64px)" }}>
+          <div
+            className="flex justify-center items-center"
+            style={{ height: 'calc(100vh - 64px)' }}
+          >
             <RecentBlog blogs={recentBlogs} />
           </div>
         </div>
@@ -165,14 +177,10 @@ interface StaticProps {
 }
 
 export async function getStaticProps(): Promise<StaticProps> {
-  const featuredProject = getProjectBySlug('linuxappstore.md', [
-    'title',
-    'description',
-    'tags',
-    'previewImage',
-    'sort',
-    'slug',
-  ]);
+  const featuredProject = getProjectBySlug(
+    'jetbrains-icon-theme-for-vscode.md',
+    ['title', 'description', 'tags', 'previewImage', 'sort', 'slug']
+  );
 
   const recentBlogs = getAllBlogs([
     'title',
