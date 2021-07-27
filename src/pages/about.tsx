@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { getAbout } from '../../lib/api';
 import Markdown from '../components/Markdown';
-import Layout from '../components/ContentLayout';
+import Layout from '../components/layouts/MainLayout';
 import { markdownToHtml } from '../util';
 
 interface Props {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Layout from '../components/Layout';
+import Layout from '../components/layouts/MainLayout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
 import { getAllProjects } from '../../lib/api';
@@ -53,11 +53,16 @@ interface ProjectLinkProps {
   project: Project;
 }
 
-const ProjectLink = React.forwardRef(({ href, onClick, project }: ProjectLinkProps, ref: React.ForwardedRef<any>) => (
-  <a href={href} onClick={onClick} ref={ref}>
-    <ProjectCard project={project} />
-  </a>
-));
+const ProjectLink = React.forwardRef(
+  (
+    { href, onClick, project }: ProjectLinkProps,
+    ref: React.ForwardedRef<any>
+  ) => (
+    <a href={href} onClick={onClick} ref={ref}>
+      <ProjectCard project={project} />
+    </a>
+  )
+);
 
 const itemCountPerPage = 5;
 
@@ -75,8 +80,8 @@ export default function Page({ projects }: PageProps) {
   const page = Number(router.query.page || 1);
   const isMounted = useIsMounted();
 
-  const [filteredProjects, setFilteredProjects] = useState(
-    () => getFilteredProjects(projects, page),
+  const [filteredProjects, setFilteredProjects] = useState(() =>
+    getFilteredProjects(projects, page)
   );
 
   function onChangePage(newPage) {
@@ -97,26 +102,30 @@ export default function Page({ projects }: PageProps) {
       </Head>
 
       <Layout>
-        <div className="mt-2">
-          {filteredProjects.map((project) => (
-            <Link
-              key={project.title}
-              href={`/projects/${project.slug}`}
-              passHref
-            >
-              <ProjectLink project={project} />
-            </Link>
-          ))}
-        </div>
+        <div className="grid grid-cols-12">
+          <div className="col-span-12 lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3 px-2 pt-2">
+            <div className="mt-2">
+              {filteredProjects.map((project) => (
+                <Link
+                  key={project.title}
+                  href={`/projects/${project.slug}`}
+                  passHref
+                >
+                  <ProjectLink project={project} />
+                </Link>
+              ))}
+            </div>
 
-        <div className="mb-8 mt-8">
-          <Pagination
-            itemCountPerPage={itemCountPerPage}
-            pageRangeCount={5}
-            totalItemCount={projects.length}
-            activePage={page}
-            onChange={onChangePage}
-          />
+            <div className="mb-8 mt-8">
+              <Pagination
+                itemCountPerPage={itemCountPerPage}
+                pageRangeCount={5}
+                totalItemCount={projects.length}
+                activePage={page}
+                onChange={onChangePage}
+              />
+            </div>
+          </div>
         </div>
       </Layout>
     </>
@@ -126,7 +135,7 @@ export default function Page({ projects }: PageProps) {
 interface StaticProps {
   props: {
     projects: Partial<Project>[];
-  }
+  };
 }
 
 export async function getStaticProps(): Promise<StaticProps> {

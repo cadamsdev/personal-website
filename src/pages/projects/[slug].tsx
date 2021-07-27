@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 // import ReactDisqusComments from 'react-disqus-comments';
-import Layout from '../../components/ContentLayout';
+import Layout from '../../components/layouts/MainLayout';
 import Tag from '../../components/Tag';
 import { getAllProjects, getProjectBySlug } from '../../../lib/api';
 import { markdownToHtml } from '../../util';

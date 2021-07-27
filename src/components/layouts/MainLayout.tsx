@@ -9,9 +9,9 @@ interface Props {
 function Layout({ children }: Props) {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <div className="flex-grow">{children}</div>
+        <div className="flex-grow" style={{ paddingTop: '64px' }}>{children}</div>
         <Footer />
       </div>
     </>

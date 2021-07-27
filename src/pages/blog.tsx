@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Layout from '../components/Layout';
+import Layout from '../components/layouts/MainLayout';
 import Card from '../components/Card';
 import Tag from '../components/Tag';
 import { getAllBlogs } from '../../lib/api';
@@ -41,8 +41,8 @@ const BlogCard = ({ blog }: BlogCardProps) => (
         <h1 className="text-2xl font-bold mb-2">{blog.title}</h1>
 
         <div>
-          {blog.tags
-            && blog.tags.map((tag) => (
+          {blog.tags &&
+            blog.tags.map((tag) => (
               <Tag key={tag} className="mr-2 mb-2" value={tag} />
             ))}
         </div>
@@ -60,11 +60,13 @@ interface BlogLinkProps {
   blog: Blog;
 }
 
-const BlogLink = React.forwardRef(({ href, onClick, blog }: BlogLinkProps, ref: React.ForwardedRef<any>) => (
-  <a href={href} onClick={onClick} ref={ref}>
-    <BlogCard blog={blog} />
-  </a>
-));
+const BlogLink = React.forwardRef(
+  ({ href, onClick, blog }: BlogLinkProps, ref: React.ForwardedRef<any>) => (
+    <a href={href} onClick={onClick} ref={ref}>
+      <BlogCard blog={blog} />
+    </a>
+  )
+);
 
 const itemCountPerPage = 10;
 
@@ -82,7 +84,9 @@ export default function Page({ blogs }: PageProps) {
   const page = Number(router.query.page || 1);
   const isMounted = useIsMounted();
 
-  const [filteredBlogs, setFilteredBlogs] = useState(() => getFilteredBlogs(blogs, page));
+  const [filteredBlogs, setFilteredBlogs] = useState(() =>
+    getFilteredBlogs(blogs, page)
+  );
 
   function onChangePage(newPage) {
     router.push(`/blog?page=${newPage}`);
@@ -102,22 +106,27 @@ export default function Page({ blogs }: PageProps) {
       </Head>
 
       <Layout>
-        <div className="mt-2">
-          {filteredBlogs.map((blog) => (
-            <Link key={blog.title} href={`/blog/${blog.slug}`} passHref>
-              <BlogLink blog={blog} />
-            </Link>
-          ))}
-        </div>
+        <div className="grid grid-cols-12">
+          <div className="col-span-12 lg:col-span-10 lg:col-start-2 xl:col-span-8 xl:col-start-3 px-2 pt-2">
+            <div className='mt-2'>
+              {filteredBlogs.map((blog) => (
+                <Link key={blog.title} href={`/blog/${blog.slug}`} passHref>
+                  <BlogLink blog={blog} />
+                </Link>
+              ))}
+            </div>
 
-        <div className="mb-8 mt-8">
-          <Pagination
-            itemCountPerPage={itemCountPerPage}
-            pageRangeCount={5}
-            totalItemCount={blogs.length}
-            activePage={page}
-            onChange={onChangePage}
-          />
+
+            <div className="mb-8 mt-8">
+              <Pagination
+                itemCountPerPage={itemCountPerPage}
+                pageRangeCount={5}
+                totalItemCount={blogs.length}
+                activePage={page}
+                onChange={onChangePage}
+              />
+            </div>
+          </div>
         </div>
       </Layout>
     </>

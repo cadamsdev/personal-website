@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 // import ReactDisqusComments from 'react-disqus-comments';
-import Layout from '../../components/ContentLayout';
+import Layout from '../../components/layouts/MainLayout';
 import Tag from '../../components/Tag';
 import DateFormatter from '../../components/DateFormatter';
 import { getAllBlogs, getBlogBySlug } from '../../../lib/api';

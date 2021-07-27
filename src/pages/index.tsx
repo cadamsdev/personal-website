@@ -123,7 +123,7 @@ export default function Page({ featuredProject, recentBlogs }: PageProps) {
       </Head>
 
       <Layout>
-        <div className="flex-grow bg-white p-2" style={{ paddingTop: '64px' }}>
+        <div className="flex-grow bg-white p-2">
           <div className='flex justify-center items-center' style={{ height: "calc(100vh - 64px)" }}>
             <Intro />
           </div>
