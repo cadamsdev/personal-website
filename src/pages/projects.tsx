@@ -97,8 +97,8 @@ export default function Page({ projects }: PageProps) {
   return (
     <>
       <Head>
-        <title>Chad Alen - Projects</title>
-        <meta name="Description" content="Projects created by Chad Alen." />
+        <title>Chad Adams - Projects</title>
+        <meta name="Description" content="Projects created by Chad Adams." />
       </Head>
 
       <Layout>

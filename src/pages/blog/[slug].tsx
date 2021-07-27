@@ -17,8 +17,8 @@ export default function Page({ blog }: PageProps): React.ReactElement {
   return (
     <>
       <Head>
-        <title>{`Chad Alen - ${blog.title}`}</title>
-        <meta name="Description" content="A blog written by Chad Alen." />
+        <title>{`Chad Adams - ${blog.title}`}</title>
+        <meta name="Description" content="A blog written by Chad Adams." />
         <link
           rel="preload"
           href="https://unpkg.com/prism-themes@1.5.0/themes/prism-darcula.css"

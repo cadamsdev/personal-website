@@ -13,8 +13,8 @@ function Page({ htmlContent }: Props): React.ReactElement {
   return (
     <>
       <Head>
-        <title>Chad Alen - About</title>
-        <meta name="Description" content="A brief background about who Chad Alen is." />
+        <title>Chad Adams - About</title>
+        <meta name="Description" content="A brief background about who Chad Adams is." />
       </Head>
 
       <Layout>

@@ -101,8 +101,8 @@ export default function Page({ blogs }: PageProps) {
   return (
     <>
       <Head>
-        <title>Chad Alen - Blogs</title>
-        <meta name="Description" content="Blogs written by Chad Alen." />
+        <title>Chad Adams - Blogs</title>
+        <meta name="Description" content="Blogs written by Chad Adams." />
       </Head>
 
       <Layout>

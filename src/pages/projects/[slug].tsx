@@ -16,8 +16,8 @@ export default function Page({ project }: PageProps): React.ReactElement {
   return (
     <>
       <Head>
-        <title>{`Chad Alen - ${project.title}`}</title>
-        <meta name="Description" content="A project created by Chad Alen." />
+        <title>{`Chad Adams - ${project.title}`}</title>
+        <meta name="Description" content="A project created by Chad Adams." />
         <link
           rel="preload"
           href="https://unpkg.com/prism-themes@1.5.0/themes/prism-darcula.css"

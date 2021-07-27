@@ -117,8 +117,8 @@ export default function Page({ featuredProject, recentBlogs }: PageProps) {
   return (
     <>
       <Head>
-        <title>Chad Alen - Home</title>
-        <meta name="Description" content="Chad Alen's personal website." />
+        <title>Chad Adams - Home</title>
+        <meta name="Description" content="Chad Adams's personal website." />
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       </Head>
 
