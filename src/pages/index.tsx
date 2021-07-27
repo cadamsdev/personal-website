@@ -99,7 +99,7 @@ function Intro(): React.ReactElement {
       />
       <div className="whitespace-pre text-2xl sm:text-3xl">
         {"Hello I'm"}
-        <span className="text-pink-600">{' Chad Adams'}</span>.
+        <span className="text-pink-600">{' Chad Alen Adams'}</span>.
       </div>
       <div className="whitespace-pre text-2xl sm:text-3xl">
         {"I'm a Software Developer."}
