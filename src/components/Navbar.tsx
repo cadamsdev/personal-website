@@ -10,16 +10,40 @@ interface NavbarLinkProp {
   value: string;
 }
 
-const NavbarLink = React.forwardRef(({
-  href,
-  onClick,
-  className,
-  value,
-}: NavbarLinkProp, ref: React.ForwardedRef<any>) => (
-  <a href={href} onClick={onClick} className={className} ref={ref}>
-    {value}
-  </a>
-));
+interface NavLink {
+  displayName: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  {
+    displayName: 'About',
+    href: '/about',
+  },
+  {
+    displayName: 'Blogs',
+    href: '/blog',
+  },
+  {
+    displayName: 'Projects',
+    href: '/projects',
+  },
+  {
+    displayName: 'Contact',
+    href: 'mailto:me@chadalen.com',
+  },
+];
+
+const NavbarLink = React.forwardRef(
+  (
+    { href, onClick, className, value }: NavbarLinkProp,
+    ref: React.ForwardedRef<any>
+  ) => (
+    <a href={href} onClick={onClick} className={className} ref={ref}>
+      {value}
+    </a>
+  )
+);
 
 export default function Navbar(): React.ReactElement {
   const router = useRouter();
@@ -95,62 +119,29 @@ export default function Navbar(): React.ReactElement {
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
-                <Link href="/about" passHref>
-                  <NavbarLink
-                    className={clsx(
-                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
-                      {
-                        'text-white bg-gray-900 hover:bg-gray-900':
-                          router.asPath === '/#about',
-                      },
-                      {
-                        'text-gray-300': !(router.asPath === '/#about'),
-                      },
-                    )}
-                    value="About"
-                  />
-                </Link>
-
-                <Link href="/blog" passHref>
-                  <NavbarLink
-                    className={clsx(
-                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
-                      {
-                        'text-white bg-gray-900 hover:bg-gray-900':
-                          router.pathname === '/blog',
-                      },
-                      {
-                        'text-gray-300': !(router.pathname === '/blog'),
-                      },
-                    )}
-                    value="Blogs"
-                  />
-                </Link>
-
-                <Link href="/projects" passHref>
-                  <NavbarLink
-                    className={clsx(
-                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
-                      {
-                        'text-white bg-gray-900 hover:bg-gray-900':
-                          router.pathname === '/projects',
-                      },
-                      {
-                        'text-gray-300': !(router.pathname === '/projects'),
-                      },
-                    )}
-                    value="Projects"
-                  />
-                </Link>
-
-                <Link href="mailto:me@chadalen.com" passHref>
-                  <NavbarLink
-                    className={clsx(
-                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium text-gray-300'
-                    )}
-                    value="Contact"
-                  />
-                </Link>
+                {navLinks.map((navLink) => {
+                  return (
+                    <Link
+                      key={navLink.displayName}
+                      href={navLink.href}
+                      passHref
+                    >
+                      <NavbarLink
+                        className={clsx(
+                          'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium',
+                          {
+                            'text-white bg-gray-900 hover:bg-gray-900':
+                              router.asPath === navLink.href,
+                          },
+                          {
+                            'text-gray-300': !(router.asPath === navLink.href),
+                          }
+                        )}
+                        value={navLink.displayName}
+                      />
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -159,52 +150,22 @@ export default function Navbar(): React.ReactElement {
 
       <div className={clsx({ hidden: !open, block: open }, 'sm:hidden')}>
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link href="/about" passHref>
-            <NavbarLink
-              className={clsx(
-                'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
-                {
-                  'text-white bg-gray-900 hover:bg-gray-900':
-                    router.pathname === '/about',
-                },
-              )}
-              value="About"
-            />
-          </Link>
-
-          <Link href="/blog" passHref>
-            <NavbarLink
-              className={clsx(
-                'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
-                {
-                  'text-white bg-gray-900 hover:bg-gray-900':
-                    router.pathname === '/blog',
-                },
-              )}
-              value="Blogs"
-            />
-          </Link>
-          <Link href="/projects" passHref>
-            <NavbarLink
-              className={clsx(
-                'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium',
-                {
-                  'text-white bg-gray-900 hover:bg-gray-900':
-                    router.pathname === '/projects',
-                },
-              )}
-              value="Projects"
-            />
-          </Link>
-
-          <Link href="mailto:me@chadalen.com" passHref>
-                  <NavbarLink
-                    className={clsx(
-                      'hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium text-gray-300'
-                    )}
-                    value="Contact"
-                  />
-                </Link>
+          {navLinks.map((navLink) => {
+            return (
+              <Link key={navLink.displayName} href={navLink.href} passHref>
+                <NavbarLink
+                  className={clsx(
+                    'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium',
+                    {
+                      'text-white bg-gray-900 hover:bg-gray-900':
+                        router.pathname === navLink.href,
+                    }
+                  )}
+                  value={navLink.displayName}
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </nav>
