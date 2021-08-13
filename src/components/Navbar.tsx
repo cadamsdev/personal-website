@@ -126,6 +126,7 @@ export default function Navbar(): React.ReactElement {
                     value="Blogs"
                   />
                 </Link>
+
                 <Link href="/projects" passHref>
                   <NavbarLink
                     className={clsx(
@@ -139,6 +140,15 @@ export default function Navbar(): React.ReactElement {
                       },
                     )}
                     value="Projects"
+                  />
+                </Link>
+
+                <Link href="mailto:me@chadalen.com" passHref>
+                  <NavbarLink
+                    className={clsx(
+                      'hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium text-gray-300'
+                    )}
+                    value="Contact"
                   />
                 </Link>
               </div>
@@ -186,6 +196,15 @@ export default function Navbar(): React.ReactElement {
               value="Projects"
             />
           </Link>
+
+          <Link href="mailto:me@chadalen.com" passHref>
+                  <NavbarLink
+                    className={clsx(
+                      'hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium text-gray-300'
+                    )}
+                    value="Contact"
+                  />
+                </Link>
         </div>
       </div>
     </nav>
