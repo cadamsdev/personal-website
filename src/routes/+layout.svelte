@@ -3,6 +3,7 @@
 
 	import Fa from 'svelte-fa/src/fa.svelte';
 	import { faLinkedinIn, faGithub, faDev } from '@fortawesome/free-brands-svg-icons';
+	import { page } from '$app/stores';
 </script>
 
 <svelte:head>
@@ -33,18 +34,18 @@
 
 		<div class="col-start-6 col-span-4">
 			<ul class="flex justify-between gap-2 uppercase font-bold text-2xl">
-				<li><a href="/about">About</a></li>
+				<li><a href="/about" class={`${$page.url.pathname==='/about' ? 'border-b-4 border-deep-carrot-orange' : ''}`}>About</a></li>
 
 				<li>
-					<a href="/blog">Blogs</a>
+					<a href="/blog" class={`${$page.url.pathname==='/blog' ? 'border-b-4 border-deep-carrot-orange' : ''}`}>Blogs</a>
 				</li>
 
 				<li>
-					<a href="/projects"> Projects </a>
+					<a href="/projects" class={`${$page.url.pathname==='/projects' ? 'border-b-4 border-deep-carrot-orange' : ''}`}> Projects </a>
 				</li>
 
 				<li>
-					<a href="/contact"> Contact </a>
+					<a href="/contact" class={`${$page.url.pathname==='/contact' ? 'border-b-4 border-deep-carrot-orange' : ''}`}> Contact </a>
 				</li>
 			</ul>
 		</div>
