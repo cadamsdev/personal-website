@@ -1,6 +1,5 @@
-
 <script>
-  import "../app.css";
+	import '../app.css';
 
 	import Fa from 'svelte-fa/src/fa.svelte';
 	import { faLinkedinIn, faGithub, faDev } from '@fortawesome/free-brands-svg-icons';
@@ -51,21 +50,25 @@
 		</div>
 	</div>
 
-  <div class="grid grid-cols-12 flex-grow">
-    <slot />
+	<div class="grid grid-cols-12 flex-grow">
+		<slot />
 	</div>
-
 
 	<div class="p-6 flex items-center justify-center bg-japanese-indigo text-deep-carrot-orange">
 		<div class="text-center">
 			<div class="flex justify-center gap-4 mb-6">
-				<Fa icon={faLinkedinIn} size="24" />
-				<Fa icon={faGithub} size="24" />
-				<Fa icon={faDev} size="24" />
+				<a href="https://www.linkedin.com/in/chadalen/" target='_blank' rel='noreferrer'>
+					<Fa icon={faLinkedinIn} size="24" />
+				</a>
+				<a href="https://github.com/chadalen" target='_blank' rel='noreferrer'>
+					<Fa icon={faGithub} size="24" />
+				</a>
+				<a href="https://dev.to/cadams" target='_blank' rel='noreferrer'>
+					<Fa icon={faDev} size="24" />
+				</a>
 			</div>
 			<div class="mb-2 text-lg">Built and designed by Chad Adams</div>
 			<div>Copyright &#169; 2022 Chad Adams</div>
 		</div>
 	</div>
 </div>
-
