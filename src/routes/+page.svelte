@@ -54,7 +54,7 @@
 			</div>
 		</div>
 
-		<div class="col-start-8 col-span-5 flex items-center justify-center">
+		<div class="col-start-8 col-span-5 flex items-end justify-center">
 			<img src="profile-pic.jpg" alt="Profile picture" />
 		</div>
 	</div>
