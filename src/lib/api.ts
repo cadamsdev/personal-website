@@ -58,50 +58,67 @@ export function getBlogSlugs() {
   return fs.readdirSync(blogDir);
 }
 
-export function getBlogBySlug(slug, fields = []) {
+export function getBlogBySlug(slug: string, fields: string[] = []): Partial<Blog> {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(blogDir, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   const { text: timeToRead } = readingTime(fileContents);
 
-  const items = {};
+  const blog: any = {};
 
   fields.forEach((field) => {
     switch (field) {
       case 'slug':
-        items[field] = realSlug;
+        blog[field] = realSlug;
         break;
 
       case 'content':
-        items[field] = content;
+        blog[field] = content;
         break;
 
       case 'timeToRead':
-        items[field] = timeToRead;
+        blog[field] = timeToRead;
         break;
 
       case 'ago':
-        items[field] = ago(new Date(Date.parse(data.date)));
+        blog[field] = ago(new Date(Date.parse(data.date)));
         break;
 
       case 'date':
-        items[field] = new Date(data.date).toISOString();
+        blog[field] = new Date(data.date).toISOString();
         break;
 
       default:
-        items[field] = data[field];
+        blog[field] = data[field];
         break;
     }
   });
 
-  return items;
+  return blog;
 }
 
-export function getAllBlogs(fields = []) {
+export interface Blog {
+  slug: string;
+  content: string;
+  timeToRead: number;
+  ago: string;
+  date: string;
+  title: string;
+  excerpt: string;
+  tags: string[];
+}
+
+export function getAllBlogs(fields: string[] = []): Partial<Blog>[] {
   const slugs = getBlogSlugs();
   const blogs = slugs
     .map((slug) => getBlogBySlug(slug, fields))
-    .sort((post1, post2) => (post1.date > post2.date ? '-1' : '1'));
+    .sort((post1, post2) => {
+      if (post1.date && post2.date) {
+        return post1.date > post2.date ? -1 : 1;
+      }
+
+      return 0;
+    });
   return blogs;
 }

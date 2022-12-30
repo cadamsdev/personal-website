@@ -1,12 +1,20 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import MainLayout from '../layouts/MainLayout.astro';
+import Tag from '../components/Tag.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 import { getAllBlogs } from '../lib/api';
 import PageLayout from '../layouts/PageLayout.astro';
 
-const blogs = getAllBlogs(['slug']);
+const blogs = getAllBlogs([
+  'slug',
+  'timeToRead',
+  'date',
+  'title',
+  'excerpt',
+  'tags',
+]);
 ---
 
 <!DOCTYPE html>
@@ -16,10 +24,30 @@ const blogs = getAllBlogs(['slug']);
   </head>
   <body>
     <MainLayout>
-      <PageLayout name='Blogs'>
+      <PageLayout name="Blogs">
         {
           blogs.map((blog) => {
-            return <div>{blog.slug}</div>;
+            return (
+              <div class="mb-8">
+                <h2 class="mb-2 text-4xl">{blog.title}</h2>
+                <div class="mb-2">{blog.excerpt}</div>
+
+                <div class="mb-2">
+                  {blog.date &&
+                    new Intl.DateTimeFormat('en-US', {
+                      dateStyle: 'long',
+                    }).format(new Date(blog.date))}
+                </div>
+
+                <div class="mb-2">{blog.timeToRead}</div>
+
+                <div class="flex gap-4">
+                  {blog.tags?.map((tag) => {
+                    return <Tag>{tag}</Tag>;
+                  })}
+                </div>
+              </div>
+            );
           })
         }
       </PageLayout>
