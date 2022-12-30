@@ -1,6 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import MainLayout from '../layouts/MainLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 ---
 
@@ -11,12 +12,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
   </head>
   <body>
     <MainLayout>
-      <div class="col-start-4 col-span-4 flex justify-center pt-16">
+      <PageLayout name='Contact me'>
         <div>
-          <h2 class="text-4xl font-bold text-deep-carrot-orange mb-6">
-            Contact me
-          </h2>
-
           <form>
             <div class="mb-4">
               <label for="name" class="block text-japanese-indigo text-lg"
@@ -51,7 +48,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
             </div>
           </form>
         </div>
-      </div>
+      </PageLayout>
     </MainLayout>
   </body>
 </html>

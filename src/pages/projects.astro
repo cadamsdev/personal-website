@@ -1,0 +1,20 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<MainLayout>
+      <PageLayout name='Projects'>
+        Page
+      </PageLayout>
+		</MainLayout>
+	</body>
+</html>

@@ -4,24 +4,25 @@ import MainLayout from '../layouts/MainLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 import { getAllBlogs } from '../lib/api';
+import PageLayout from '../layouts/PageLayout.astro';
 
 const blogs = getAllBlogs(['slug']);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<MainLayout>
-			{blogs.map((blog) => {
-				return (
-					<div>
-						{blog.slug}
-					</div>
-				)
-			})}
-		</MainLayout>
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <MainLayout>
+      <PageLayout name='Blogs'>
+        {
+          blogs.map((blog) => {
+            return <div>{blog.slug}</div>;
+          })
+        }
+      </PageLayout>
+    </MainLayout>
+  </body>
 </html>
