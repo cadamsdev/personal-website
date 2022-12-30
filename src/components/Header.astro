@@ -9,18 +9,18 @@
 
   <div class="col-start-6 col-span-4">
     <ul class="flex justify-between gap-2 uppercase font-bold text-2xl">
-      <li><a href="/about">About</a></li>
+      <li><a href="/about" class:list={[ { 'border-b-4 border-deep-carrot-orange': Astro.url.pathname === '/about' }]}>About</a></li>
 
       <li>
-        <a href="/blog">Blogs</a>
+        <a href="/blog" class:list={[ { 'border-b-4 border-deep-carrot-orange': Astro.url.pathname === '/blog' }]}>Blogs</a>
       </li>
 
       <li>
-        <a href="/projects"> Projects</a>
+        <a href="/projects" class:list={[ { 'border-b-4 border-deep-carrot-orange': Astro.url.pathname === '/projects' }]}> Projects</a>
       </li>
 
       <li>
-        <a href="/contact"> Contact</a>
+        <a href="/contact" class:list={[ { 'border-b-4 border-deep-carrot-orange': Astro.url.pathname === '/contact' }]}> Contact</a>
       </li>
     </ul>
   </div>
