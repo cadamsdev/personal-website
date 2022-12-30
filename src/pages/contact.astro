@@ -1,0 +1,57 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <MainLayout>
+      <div class="col-start-4 col-span-4 flex justify-center pt-16">
+        <div>
+          <h2 class="text-4xl font-bold text-deep-carrot-orange mb-6">
+            Contact me
+          </h2>
+
+          <form>
+            <div class="mb-4">
+              <label for="name" class="block text-japanese-indigo text-lg"
+                >Name:</label
+              >
+              <input name="name" class="px-4 py-2 rounded w-full" />
+            </div>
+
+            <div class="mb-4">
+              <label for="email" class="block text-japanese-indigo text-lg"
+                >Email:</label
+              >
+              <input name="email" class="px-4 py-2 rounded w-full" />
+            </div>
+
+            <div class="mb-4">
+              <label for="message" class="block text-japanese-indigo text-lg"
+                >Message:</label
+              >
+              <textarea
+                name="message"
+                rows="4"
+                cols="50"
+                class="px-4 py-2 rounded">placeholder</textarea
+              >
+            </div>
+
+            <div class="flex justify-end">
+              <button class="bg-deep-carrot-orange px-4 py-2 rounded"
+                >Send email</button
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </MainLayout>
+  </body>
+</html>
