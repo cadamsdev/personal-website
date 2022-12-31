@@ -29,7 +29,9 @@ const blogs = getAllBlogs([
           blogs.map((blog) => {
             return (
               <div class="mb-12">
-                <h2 class="mb-2 text-4xl">{blog.title}</h2>
+                <a href={`/blog/${blog.slug}`} class='hover:underline'>
+                  <h2 class="mb-2 text-4xl">{blog.title}</h2>
+                </a>
                 <div class="mb-2">{blog.excerpt}</div>
 
                 <div class="mb-2">
