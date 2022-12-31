@@ -13,9 +13,6 @@ module.exports = {
         'bright-gray': '#e9eef2',
       },
     },
-    fontFamily: {
-      sans: ['Source Sans Pro'],
-    },
   },
   plugins: [],
 };
