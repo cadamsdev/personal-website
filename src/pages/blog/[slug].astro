@@ -1,0 +1,68 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Tag from '../../components/Tag.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getAllBlogs, getBlogBySlug } from '../../lib/api';
+
+export function getStaticPaths() {
+  const blogs = getAllBlogs(['slug']);
+  return blogs.map((blog) => {
+    return {
+      params: { slug: blog.slug },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const blog = getBlogBySlug(slug || '', [
+  'title',
+  'excerpt',
+  'content',
+  'date',
+  'timeToRead',
+  'tags',
+]);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <MainLayout>
+      <BlogLayout>
+        <div class="mb-6">
+          <h1 class="text-4xl mb-4">
+            {blog.title}
+          </h1>
+
+          <div class="mb-2">{blog.excerpt}</div>
+
+          <div class="mb-2">
+            {
+              blog.date &&
+                new Intl.DateTimeFormat('en-US', {
+                  dateStyle: 'long',
+                }).format(new Date(blog.date))
+            }
+          </div>
+
+          <div class="mb-2">{blog.timeToRead}</div>
+
+          <div class="flex gap-4">
+            {
+              blog.tags?.map((tag) => {
+                return <Tag>{tag}</Tag>;
+              })
+            }
+          </div>
+        </div>
+
+        <article set:html={blog.content} />
+      </BlogLayout>
+    </MainLayout>
+  </body>
+</html>

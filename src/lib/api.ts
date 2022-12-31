@@ -3,6 +3,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 import ago from 's-ago';
+import md from 'markdown-it';
 
 const blogDir = join(process.cwd(), 'content', 'blog');
 const projectDir = join(process.cwd(), 'content', 'projects');
@@ -25,6 +26,12 @@ export function getProjectBySlug(slug: string, fields: string[] = []): Partial<P
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
+  const parser = md({
+    breaks: true,
+    linkify: true,
+  });
+
+  const html = parser.render(content);
   const items: any = {};
 
   fields.forEach((field) => {
@@ -34,7 +41,7 @@ export function getProjectBySlug(slug: string, fields: string[] = []): Partial<P
         break;
 
       case 'content':
-        items[field] = content;
+        items[field] = html;
         break;
 
       default:
@@ -52,6 +59,7 @@ export interface Project {
   tags: string[];
   previewImage: string;
   sort: number;
+  content: string;
 }
 
 export function getAllProjects(fields: string[] = []): Partial<Project>[] {
@@ -82,6 +90,12 @@ export function getBlogBySlug(slug: string, fields: string[] = []): Partial<Blog
   const { data, content } = matter(fileContents);
   const { text: timeToRead } = readingTime(fileContents);
 
+  const parser = md({
+    breaks: true,
+    linkify: true,
+  });
+
+  const html = parser.render(content);
   const blog: any = {};
 
   fields.forEach((field) => {
@@ -91,7 +105,7 @@ export function getBlogBySlug(slug: string, fields: string[] = []): Partial<Blog
         break;
 
       case 'content':
-        blog[field] = content;
+        blog[field] = html;
         break;
 
       case 'timeToRead':
