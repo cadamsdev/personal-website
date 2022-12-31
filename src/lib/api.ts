@@ -19,13 +19,13 @@ export function getProjectSlugs() {
   return fs.readdirSync(projectDir);
 }
 
-export function getProjectBySlug(slug, fields = []) {
+export function getProjectBySlug(slug: string, fields: string[] = []): Partial<Project> {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(projectDir, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  const items = {};
+  const items: any = {};
 
   fields.forEach((field) => {
     switch (field) {
@@ -46,11 +46,28 @@ export function getProjectBySlug(slug, fields = []) {
   return items;
 }
 
-export function getAllProjects(fields = []) {
+export interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  previewImage: string;
+  sort: number;
+}
+
+export function getAllProjects(fields: string[] = []): Partial<Project>[] {
   const slugs = getProjectSlugs();
   const projects = slugs
     .map((slug) => getProjectBySlug(slug, fields))
-    .sort((project1, project2) => (project1.sort > project2.sort ? '-1' : '1'));
+    .sort((project1, project2) => {
+      const aSort = project1.sort || 0;
+      const bSort = project2.sort || 0;
+
+      if (aSort && bSort) {
+        return aSort > bSort ? -1 : 0;
+      }
+
+      return 0;
+    });
   return projects;
 }
 

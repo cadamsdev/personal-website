@@ -3,18 +3,43 @@ import BaseHead from '../components/BaseHead.astro';
 import MainLayout from '../layouts/MainLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import PageLayout from '../layouts/PageLayout.astro';
+import { getAllProjects } from '../lib/api';
+import Tag from '../components/Tag.astro';
+
+const projects = getAllProjects([
+  'title',
+  'description',
+  'tags',
+  'previewImage',
+  'sort',
+]);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<MainLayout>
-      <PageLayout name='Projects'>
-        Page
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <MainLayout>
+      <PageLayout name="Projects">
+        {
+          projects.map((project) => {
+            return (
+              <div class="mb-8">
+                <h2 class="text-4xl">{project.title}</h2>
+                <small class="block text-lg my-2">{project.description}</small>
+                <div class='flex gap-4 mb-4'>
+                  {project.tags?.map((tag) => {
+                    return <Tag>{tag}</Tag>;
+                  })}
+                </div>
+                <img src={project.previewImage} />
+              </div>
+            );
+          })
+        }
       </PageLayout>
-		</MainLayout>
-	</body>
+    </MainLayout>
+  </body>
 </html>
