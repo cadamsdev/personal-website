@@ -4,6 +4,8 @@ import matter from 'gray-matter';
 import readingTime from 'reading-time';
 import ago from 's-ago';
 import md from 'markdown-it';
+import hljs from 'highlight.js';
+import mdUtils from 'markdown-it/lib/common/utils';
 
 const blogDir = join(process.cwd(), 'content', 'blog');
 const projectDir = join(process.cwd(), 'content', 'projects');
@@ -29,9 +31,24 @@ export function getProjectBySlug(slug: string, fields: string[] = []): Partial<P
   const parser = md({
     breaks: true,
     linkify: true,
+    highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return (
+            '<pre class="hljs"><code>' +
+            hljs.highlight(str, { language: lang, ignoreIllegals: true })
+              .value +
+            '</code></pre>'
+          );
+        } catch (__) {}
+      }
+
+      return (
+        '<pre class="hljs"><code>' + mdUtils.escapeHtml(str) + '</code></pre>'
+      );
+    },
   });
 
-  const html = parser.render(content);
   const items: any = {};
 
   fields.forEach((field) => {
@@ -41,6 +58,7 @@ export function getProjectBySlug(slug: string, fields: string[] = []): Partial<P
         break;
 
       case 'content':
+        const html = parser.render(content);
         items[field] = html;
         break;
 
@@ -93,9 +111,24 @@ export function getBlogBySlug(slug: string, fields: string[] = []): Partial<Blog
   const parser = md({
     breaks: true,
     linkify: true,
+    highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return (
+            '<pre class="hljs"><code>' +
+            hljs.highlight(str, { language: lang, ignoreIllegals: true })
+              .value +
+            '</code></pre>'
+          );
+        } catch (__) {}
+      }
+
+      return (
+        '<pre class="hljs"><code>' + mdUtils.escapeHtml(str) + '</code></pre>'
+      );
+    },
   });
 
-  const html = parser.render(content);
   const blog: any = {};
 
   fields.forEach((field) => {
@@ -105,6 +138,7 @@ export function getBlogBySlug(slug: string, fields: string[] = []): Partial<Blog
         break;
 
       case 'content':
+        const html = parser.render(content);
         blog[field] = html;
         break;
 
