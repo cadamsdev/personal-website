@@ -6,6 +6,7 @@ import ago from 's-ago';
 import md from 'markdown-it';
 import hljs from 'highlight.js';
 import mdUtils from 'markdown-it/lib/common/utils';
+import mila from 'markdown-it-link-attributes';
 
 const blogDir = join(process.cwd(), 'content', 'blog');
 const projectDir = join(process.cwd(), 'content', 'projects');
@@ -47,6 +48,11 @@ export function getProjectBySlug(slug: string, fields: string[] = []): Partial<P
         '<pre class="hljs"><code>' + mdUtils.escapeHtml(str) + '</code></pre>'
       );
     },
+  }).use(mila, {
+    attrs: {
+      target: "_blank",
+      rel: "noopener",
+    }
   });
 
   const items: any = {};
@@ -127,6 +133,11 @@ export function getBlogBySlug(slug: string, fields: string[] = []): Partial<Blog
       return (
         '<pre class="hljs"><code>' + mdUtils.escapeHtml(str) + '</code></pre>'
       );
+    },
+  }).use(mila, {
+    attrs: {
+      target: '_blank',
+      rel: 'noopener',
     },
   });
 
