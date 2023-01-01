@@ -12,6 +12,7 @@ const projects = getAllProjects([
   'tags',
   'previewImage',
   'sort',
+  'slug',
 ]);
 ---
 
@@ -27,7 +28,9 @@ const projects = getAllProjects([
           projects.map((project) => {
             return (
               <div class="mb-16">
-                <h2 class="text-4xl">{project.title}</h2>
+                <a href={`/projects/${project.slug}`} class='underline hover:no-underline'>
+                  <h2 class="text-4xl">{project.title}</h2>  
+                </a>
                 <small class="block text-lg my-2">{project.description}</small>
                 <div class='flex gap-4 mb-4'>
                   {project.tags?.map((tag) => {

@@ -78,6 +78,7 @@ export interface Project {
   previewImage: string;
   sort: number;
   content: string;
+  slug: string;
 }
 
 export function getAllProjects(fields: string[] = []): Partial<Project>[] {
