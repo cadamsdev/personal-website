@@ -29,7 +29,7 @@ const blog = getBlogBySlug(slug || '', [
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={`${SITE_TITLE} - ${blog.title}`} description={SITE_DESCRIPTION} />
   </head>
   <body>
     <MainLayout>
