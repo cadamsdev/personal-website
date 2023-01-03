@@ -1,54 +1,58 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import MainLayout from '../layouts/MainLayout.astro';
-import PageLayout from '../layouts/PageLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={`${SITE_TITLE} - Contact`} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title={`${SITE_TITLE} - Contact`}
+      description={SITE_DESCRIPTION}
+    />
   </head>
   <body>
     <MainLayout>
-      <PageLayout name='Contact me'>
-        <div>
-          <form>
-            <div class="mb-4">
-              <label for="name" class="block text-japanese-indigo text-lg"
-                >Name:</label
-              >
-              <input name="name" class="px-4 py-2 rounded w-full" />
-            </div>
+      <div class="pt-16 px-4 sm:px-0 col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 xl:col-start-4 xl:col-span-6 2xl:col-start-5 2xl:col-span-4">
+        <h2 class="text-4xl font-bold text-deep-carrot-orange mb-6">
+          Contact me
+        </h2>
 
-            <div class="mb-4">
-              <label for="email" class="block text-japanese-indigo text-lg"
-                >Email:</label
-              >
-              <input name="email" class="px-4 py-2 rounded w-full" />
-            </div>
+        <form>
+          <div class="mb-4">
+            <label for="name" class="block text-japanese-indigo text-lg"
+              >Name:</label
+            >
+            <input name="name" class="px-4 py-2 rounded w-full" />
+          </div>
 
-            <div class="mb-4">
-              <label for="message" class="block text-japanese-indigo text-lg"
-                >Message:</label
-              >
-              <textarea
-                name="message"
-                rows="4"
-                cols="50"
-                class="px-4 py-2 rounded w-full">placeholder</textarea
-              >
-            </div>
+          <div class="mb-4">
+            <label for="email" class="block text-japanese-indigo text-lg"
+              >Email:</label
+            >
+            <input name="email" class="px-4 py-2 rounded w-full" />
+          </div>
 
-            <div class="flex justify-end">
-              <button class="bg-deep-carrot-orange px-4 py-2 rounded"
-                >Send email</button
-              >
-            </div>
-          </form>
-        </div>
-      </PageLayout>
+          <div class="mb-4">
+            <label for="message" class="block text-japanese-indigo text-lg"
+              >Message:</label
+            >
+            <textarea
+              name="message"
+              rows="4"
+              cols="50"
+              class="px-4 py-2 rounded w-full"></textarea
+            >
+          </div>
+
+          <div class="flex justify-end">
+            <button class="bg-deep-carrot-orange px-5 py-3 rounded"
+              >Send email</button
+            >
+          </div>
+        </form>
+      </div>
     </MainLayout>
   </body>
 </html>
