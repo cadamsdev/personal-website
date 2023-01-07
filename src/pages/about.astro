@@ -2,6 +2,18 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import BaseHead from '../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+function getYearsSince(pastDate: Date): number {
+  const today = new Date();
+  const yearsDifference = today.getFullYear() - pastDate.getFullYear();
+  const isBeforeBirthday =
+    (today.getMonth(), today.getDate()) <
+    (pastDate.getMonth(), pastDate.getDate());
+  return yearsDifference - +isBeforeBirthday;
+}
+
+const age = getYearsSince(new Date('1994-04-29'));
+const yearsExperience = getYearsSince(new Date('2015-09-01'));
 ---
 
 <!DOCTYPE html>
@@ -17,25 +29,27 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
             About me
           </h2>
           <p class="text-xl leading-relaxed mb-4">
-            Qui est exercitation nulla pariatur occaecat commodo ut non id irure
-            duis consequat. Elit occaecat magna labore dolore id tempor commodo
-            tempor ipsum elit aute. Laborum eiusmod fugiat commodo voluptate eu
-            officia Lorem.
+            I am a {age} year old Software Developer from Bluffton, SC. I build all
+            sorts of software but I mainly specialize in full stack web development.
+            I have been professionally developing software for over
+            {yearsExperience} years now. My passion has been creating user interfaces
+            because I enjoy making software visually appealing and giving users a
+            better experience.
           </p>
 
           <p class="text-xl leading-relaxed mb-4">
-            Est laboris ad duis velit laborum exercitation non cillum
-            adipisicing Lorem Lorem reprehenderit. Magna est esse exercitation
-            nostrud qui veniam quis minim eu non. Non commodo laborum officia
-            laborum culpa consequat. Dolor nostrud officia ipsum Lorem nulla
-            fugiat cupidatat ex duis adipisicing. Est ea nisi ullamco dolore.
+            I have an associates degree in Computer Programming from <a
+              href="https://www.sctcc.edu/"
+              target="_blank">St Cloud Technical and Community College</a
+            > located in St Cloud, MN. I also currently work as a Senior Software
+            Engineer at <a href="https://www.experian.com/">Experian</a>.
           </p>
 
-          <p class="text-xl leading-relaxed">
-            Est esse duis elit esse aute mollit nulla tempor et adipisicing
-            cupidatat magna. Elit ullamco culpa proident duis labore commodo et
-            occaecat. Aute nulla fugiat voluptate occaecat. Consequat qui ad
-            sunt ut duis officia sint proident ut consequat occaecat elit.
+          <p class="text-xl leading-relaxed mb-4">
+            A little bit more about myself. I love open source software. I'm a
+            huge fan of Linux. My favorite linux distro is <a
+              href="https://neon.kde.org/">KDE Neon</a
+            >.
           </p>
         </div>
       </div>
