@@ -19,7 +19,10 @@ const projects = getAllProjects([
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={`${SITE_TITLE} - Projects`} description={SITE_DESCRIPTION} />
+    <BaseHead
+      title={`${SITE_TITLE} - Projects`}
+      description={SITE_DESCRIPTION}
+    />
   </head>
   <body>
     <MainLayout>
@@ -28,16 +31,26 @@ const projects = getAllProjects([
           projects.map((project) => {
             return (
               <div class="mb-16 animate__animated animate__fadeInUp">
-                <a href={`/projects/${project.slug}`} class='underline hover:no-underline'>
-                  <h2 class="text-4xl">{project.title}</h2>  
+                <a
+                  href={`/projects/${project.slug}`}
+                  class="no-underline hover:underline"
+                >
+                  <h2 class="text-4xl">{project.title}</h2>
                 </a>
                 <small class="block text-lg my-2">{project.description}</small>
-                <div class='flex gap-4 mb-4'>
+                <div class="flex gap-4 mb-4">
                   {project.tags?.map((tag) => {
                     return <Tag>{tag}</Tag>;
                   })}
                 </div>
-                <img src={project.previewImage} />
+                <img class='mb-4' src={project.previewImage} />
+
+                <a
+                  href={`/projects/${project.slug}`}
+                  class="bg-deep-carrot-orange hover:bg-japanese-indigo px-3 py-2 rounded text-sm text-gray-50 font-bold"
+                >
+                  Read more...
+                </a>
               </div>
             );
           })
