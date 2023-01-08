@@ -4,7 +4,6 @@
   export let pathname;
 
   let open = false;
-  let temp = true;
 
   function handleClick() {
     console.log('hello world!');
@@ -62,8 +61,8 @@
 </div>
 
 {#if open}
-  <div class="p-2 border-2">
-    <ul class="flex flex-col gap-4 uppercase font-bold text-xl">
+  <div class="block py-2 px-4 border-2 sm:hidden">
+    <ul class="flex flex-col items-end gap-4 uppercase font-bold text-xl">
       <li>
         <a href="/about" class={clsx({ 'border-b-4 border-deep-carrot-orange': pathname === '/about' })}>About</a>
       </li>
