@@ -43,11 +43,15 @@ const blogs = getAllBlogs([
 
                 <div class='text-sm mb-2'>{blog.timeToRead}</div>
 
-                <div class="flex gap-4">
+                <div class="flex gap-4 mb-4">
                   {blog.tags?.map((tag) => {
                     return <Tag>{tag}</Tag>;
                   })}
                 </div>
+
+                <a href={`/blog/${blog.slug}`} class='bg-deep-carrot-orange hover:bg-japanese-indigo px-3 py-2 rounded text-sm text-gray-50 font-bold'>
+                  Read more...
+                </a>
               </div>
             );
           })
