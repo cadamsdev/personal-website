@@ -28,20 +28,20 @@ const blogs = getAllBlogs([
         {
           blogs.map((blog) => {
             return (
-              <div class="mb-12">
+              <div class="mb-12 animate__animated animate__fadeInUp">
                 <a href={`/blog/${blog.slug}`} class="hover:underline">
                   <h2 class="mb-2 text-4xl">{blog.title}</h2>
                 </a>
-                <div class="mb-2">{blog.excerpt}</div>
+                <div class='text-lg'>{blog.excerpt}</div>
 
-                <div class="mb-2">
+                <div class='text-sm'>
                   {blog.date &&
                     new Intl.DateTimeFormat('en-US', {
                       dateStyle: 'long',
                     }).format(new Date(blog.date))}
                 </div>
 
-                <div class="mb-2">{blog.timeToRead}</div>
+                <div class='text-sm mb-2'>{blog.timeToRead}</div>
 
                 <div class="flex gap-4">
                   {blog.tags?.map((tag) => {
