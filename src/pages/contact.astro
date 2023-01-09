@@ -24,14 +24,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
             <label for="name" class="block text-japanese-indigo text-lg"
               >Name:</label
             >
-            <input name="name" class="px-5 py-3 rounded w-full" />
+            <input id='name' name="name" class="px-5 py-3 rounded w-full" />
           </div>
 
           <div class="mb-4">
             <label for="email" class="block text-japanese-indigo text-lg"
               >Email:</label
             >
-            <input name="email" class="px-5 py-3 rounded w-full" />
+            <input id='email'  name="email" class="px-5 py-3 rounded w-full" />
           </div>
 
           <div class="mb-4">
@@ -39,6 +39,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
               >Message:</label
             >
             <textarea
+              id='message' 
               name="message"
               rows="6"
               cols="50"
