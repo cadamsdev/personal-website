@@ -1,4 +1,6 @@
 ---
+import '../../styles/markdown.css';
+import 'highlight.js/styles/atom-one-dark.css';
 import BaseHead from '../../components/BaseHead.astro';
 import MainLayout from '../../layouts/MainLayout.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
@@ -50,10 +52,5 @@ const project = getProjectBySlug(slug || '', [
         <article class="markdown" set:html={project.content} />
       </BlogLayout>
     </MainLayout>
-
-    <style>
-      @import '../../styles/markdown.css';
-      @import 'highlight.js/styles/atom-one-dark.css';
-    </style>
   </body>
 </html>
