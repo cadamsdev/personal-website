@@ -5,7 +5,7 @@ excerpt: "Terminals don't have to feel old and outdated."
 tags: ['hyper', 'starship', 'fish shell']
 ---
 
-<img width="876" alt="Screen Shot 2019-12-22 at 11 27 59 AM" src="https://user-images.githubusercontent.com/12568665/71325137-26acf500-24ae-11ea-914e-e5985d8e4404.png">
+![img](https://user-images.githubusercontent.com/12568665/71325137-26acf500-24ae-11ea-914e-e5985d8e4404.png)
 
 ## Terminal Choice
 [Hyper](https://hyper.is/) - The reason I use Hyper over other terminals is because I wanted a terminal that works on both Mac and Linux since I use both frequently. On a Mac and I previously used ITerm2. ITerm2 has a couple features I like more (e.g Command + Click to open a folder). Though Hyper has better themes in my opinion and I want a terminal that looks good.

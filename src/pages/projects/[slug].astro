@@ -1,0 +1,59 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../config';
+import { getAllProjects, getProjectBySlug } from '../../lib/api';
+import Tag from '../../components/Tag.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export function getStaticPaths() {
+  const projects = getAllProjects(['slug']);
+  return projects.map((project) => {
+    return {
+      params: { slug: project.slug },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug || '', [
+  'title',
+  'description',
+  'tags',
+  'previewImage',
+  'content',
+]);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} - ${project.title}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <MainLayout>
+      <BlogLayout>
+        <div class="mb-8">
+          <h1 class="text-4xl mb-2">
+            {project.title}
+          </h1>
+          <div class="mb-2">{project.description}</div>
+
+          <div class="flex gap-4">
+            {
+              project.tags?.map((tag) => {
+                return <Tag>{tag}</Tag>;
+              })
+            }
+          </div>
+        </div>
+        <article class="markdown" set:html={project.content} />
+      </BlogLayout>
+    </MainLayout>
+
+    <style>
+      @import '../../styles/markdown.css';
+      @import 'highlight.js/styles/atom-one-dark.css';
+    </style>
+  </body>
+</html>

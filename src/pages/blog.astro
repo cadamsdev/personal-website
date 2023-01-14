@@ -1,0 +1,62 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import Tag from '../components/Tag.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+import { getAllBlogs } from '../lib/api';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const blogs = getAllBlogs([
+  'slug',
+  'timeToRead',
+  'date',
+  'title',
+  'excerpt',
+  'tags',
+]);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${SITE_TITLE} - Blogs`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <MainLayout>
+      <PageLayout name="Blogs">
+        {
+          blogs.map((blog) => {
+            return (
+              <div class="mb-12 animate__animated animate__fadeIn">
+                <a href={`/blog/${blog.slug}`} class="hover:underline">
+                  <h2 class="mb-2 text-2xl md:text-3xl">{blog.title}</h2>
+                </a>
+                <div class='text-lg'>{blog.excerpt}</div>
+
+                <div class='text-sm'>
+                  {blog.date &&
+                    new Intl.DateTimeFormat('en-US', {
+                      dateStyle: 'long',
+                    }).format(new Date(blog.date))}
+                </div>
+
+                <div class='text-sm mb-2'>{blog.timeToRead}</div>
+
+                <div class="flex gap-4 mb-4">
+                  {blog.tags?.map((tag) => {
+                    return <Tag>{tag}</Tag>;
+                  })}
+                </div>
+
+                <a href={`/blog/${blog.slug}`} class='bg-deep-carrot-orange hover:bg-japanese-indigo px-3 py-2 rounded text-sm text-gray-50 font-bold'>
+                  Read more...
+                </a>
+              </div>
+            );
+          })
+        }
+      </PageLayout>
+    </MainLayout>
+  </body>
+</html>

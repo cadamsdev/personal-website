@@ -1,11 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
 
-body {
-  @apply bg-gray-800;
-}
-
-html, body, #__next {
-  min-height: 100vh;
+html, body {
+  height: 100%;
+  @apply bg-bright-gray;
 }

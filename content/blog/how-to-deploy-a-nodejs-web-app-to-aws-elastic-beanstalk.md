@@ -39,7 +39,7 @@ We are going to use [Docker](https://www.docker.com/) because Docker makes deplo
 Once you have an account, we will create a `Dockerfile`. This file is basically an instruction on how to package and run your application using Docker.
 
 So create a file named "Dockerfile" next to your node's `package.json`.
-```
+```dockerfile
 FROM node:13-alpine
 
 WORKDIR /usr/src/app
