@@ -23,7 +23,9 @@ const yearsExperience = getYearsSince(new Date('2015-09-01'));
   </head>
   <body>
     <MainLayout>
-      <div class="animate__animated animate__fadeIn px-4 sm:px-0 col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 xl:col-start-4 xl:col-span-5 2xl:col-start-4 2xl:col-span-4 flex justify-center py-16">
+      <div
+        class="animate__animated animate__fadeIn px-4 sm:px-0 col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 xl:col-start-4 xl:col-span-5 2xl:col-start-4 2xl:col-span-4 flex justify-center py-16"
+      >
         <div>
           <h2 class="text-4xl font-bold text-deep-carrot-orange mb-6">
             About me
@@ -45,7 +47,7 @@ const yearsExperience = getYearsSince(new Date('2015-09-01'));
             > located in St. Cloud, MN. I also currently work as a Senior Software
             Engineer at <a
               class="underline hover:no-underline text-deep-carrot-orange"
-              href="https://www.experian.com/">Experian</a
+              href="https://www.experian.com/" target="_blank">Experian</a
             >.
           </p>
 
@@ -53,13 +55,15 @@ const yearsExperience = getYearsSince(new Date('2015-09-01'));
             A little bit more about myself. I love open source software. I'm a
             huge fan of Linux. My favorite linux distro is <a
               class="underline hover:no-underline text-deep-carrot-orange"
-              href="https://neon.kde.org/">KDE Neon</a
+              href="https://neon.kde.org/" target="_blank">KDE Neon</a
             >.
           </p>
         </div>
       </div>
 
-      <div class="hidden xl:flex xl:border-b-black xl:col-start-9 xl:col-span-4  2xl:col-start-8 2xl:col-span-5 items-end justify-center">
+      <div
+        class="hidden xl:flex xl:border-b-black xl:col-start-9 xl:col-span-4 2xl:col-start-8 2xl:col-span-5 items-end justify-center"
+      >
         <img src="profile-pic.jpg" alt="Profile picture" />
       </div>
     </MainLayout>
