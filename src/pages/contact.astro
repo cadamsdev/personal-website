@@ -19,7 +19,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
           Contact me
         </h2>
 
-        <form name='contact' data-netlify="true">
+        <form name='contact' data-netlify="true" netlify-honeypot="firstName">
+          <label for="firstName">
+            First name:
+          </label>
+
+          <input id="firstName" name="firstName">
+
           <div class="mb-4">
             <label for="name" class="block text-japanese-indigo text-lg"
               >Name:</label
@@ -56,3 +62,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
     </MainLayout>
   </body>
 </html>
+
+<style>
+  input[name=firstName] {
+    display: none;
+  }
+
+  label[for=firstName] {
+    display: none;
+  }
+</style>
