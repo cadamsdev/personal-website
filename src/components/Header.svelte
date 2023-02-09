@@ -1,17 +1,36 @@
 <script>
   import clsx from 'clsx';
+  import { onMount, onDestroy } from 'svelte';
 
   export let pathname;
+  export let component = null;
 
   let open = false;
 
+  onMount(() => {
+    window.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener('touchstart', handleClickOutside);
+  });
+
+  onDestroy(() => {
+    window.removeEventListener('mousedown', handleClickOutside);
+    window.removeEventListener('touchstart', handleClickOutside);
+  });
+
   function handleClick() {
-    console.log('hello world!');
     open = !open;
+  }
+
+  function handleClickOutside(event) {
+    if (component?.contains(event.target)) {
+      return;
+    }
+
+    open = false;
   }
 </script>
 
-<div class="relative">
+<div bind:this={component} class="relative">
   <div class="hidden sm:grid grid-cols-12 p-6">
     <div
       class="sm:col-span-1 md:col-span-2 lg:col-start-2 lg:col-span-2 xl:col-start-3 xl:col-span-3 2xl:col-start-4 2xl:col-span-2"
