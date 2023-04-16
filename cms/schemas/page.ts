@@ -22,7 +22,7 @@ export default {
       name: 'pageBuilder',
       type: 'array',
       title: 'Page builder',
-      of: [{ type: 'hero' }],
+      of: [{ type: 'hero' }, { type: 'about' }],
     },
   ],
 }

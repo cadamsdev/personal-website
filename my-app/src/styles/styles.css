@@ -13,3 +13,12 @@ body {
   @apply bg-bright-gray;
 }
 
+.markdown a {
+  @apply text-deep-carrot-orange;
+  @apply underline;
+  @apply hover:no-underline;
+}
+
+.markdown p {
+  @apply my-4;
+}
