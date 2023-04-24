@@ -25,5 +25,5 @@
 	</div>
 </div>
 
-<article class="markdown" contenteditable="true" bind:innerHTML={data.blog.content} />
+	<article class="markdown" contenteditable="false" bind:innerHTML={data.blog.content} />
 </div>
