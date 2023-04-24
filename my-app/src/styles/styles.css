@@ -22,3 +22,7 @@ body {
 .markdown p {
   @apply my-4;
 }
+
+.markdown {
+  @apply text-lg;
+}
