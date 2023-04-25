@@ -1,27 +1,32 @@
-<script>
+<script lang="ts">
   import clsx from 'clsx';
+  import { browser } from '$app/environment';
   import { onMount, onDestroy } from 'svelte';
 
-  export let pathname;
-  export let component = null;
+  export let pathname: string;
+  export let component: any = null;
 
   let open = false;
 
   onMount(() => {
-    window.addEventListener('mousedown', handleClickOutside);
-    window.addEventListener('touchstart', handleClickOutside);
+    if (browser) {
+      window.addEventListener('mousedown', handleClickOutside);
+      window.addEventListener('touchstart', handleClickOutside);
+    }
   });
 
   onDestroy(() => {
-    window.removeEventListener('mousedown', handleClickOutside);
-    window.removeEventListener('touchstart', handleClickOutside);
+    if (browser) {
+      window.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('touchstart', handleClickOutside);
+    }
   });
 
   function handleClick() {
     open = !open;
   }
 
-  function handleClickOutside(event) {
+  function handleClickOutside(event: Event) {
     if (component?.contains(event.target)) {
       return;
     }
