@@ -17,6 +17,11 @@ export default {
       },
     },
     {
+      name: 'order',
+      type: 'number',
+      title: 'Sort Order',
+    },
+    {
       name: 'previewImage',
       type: 'image',
       title: 'Preview Image',
@@ -45,6 +50,13 @@ export default {
           type: 'string',
         },
       ],
+    },
+  ],
+  orderings: [
+    {
+      title: 'Sort Order',
+      name: 'projectOrderDesc',
+      by: [{field: 'order', direction: 'desc'}],
     },
   ],
 }
