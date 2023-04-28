@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Pagination from '../../components/Pagination.svelte';
 	import Tag from '../../components/Tag.svelte';
 	export let data: any;
 </script>
@@ -33,3 +34,5 @@
 		</a>
 	</div>
 {/each}
+
+<Pagination totalPageCount={data.totalPageCount} currentPage={+data.currentPage} />

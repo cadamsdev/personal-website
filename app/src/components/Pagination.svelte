@@ -9,7 +9,7 @@
     }
 
     currentPage--;
-    goto(`/projects?page=${currentPage}`);
+    goto(`${window.location.pathname}?page=${currentPage}`);
 	};
 
 	const next = () => {
@@ -18,7 +18,7 @@
     }
 
     currentPage++;
-    goto(`/projects?page=${currentPage}`);
+    goto(`${window.location.pathname}?page=${currentPage}`);
 	};
 </script>
 
