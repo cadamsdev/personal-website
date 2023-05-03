@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../../../styles/markdown.css';
 	import Tag from '../../../components/Tag.svelte';
 	export let data: any;
 </script>
