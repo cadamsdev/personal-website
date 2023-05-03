@@ -1,4 +1,5 @@
 import { getSanityClient } from '../utils/sanity-utils';
+import { PAGE_TITLE } from '../utils/settings';
 
 export async function load() {
 	const client = getSanityClient();
@@ -16,5 +17,8 @@ export async function load() {
 	return {
 		...pageData,
 		hero,
+		seo: {
+			title: `${PAGE_TITLE} - Home`,
+		}
 	};
 }

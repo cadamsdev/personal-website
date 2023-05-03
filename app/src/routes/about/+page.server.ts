@@ -1,6 +1,7 @@
 import { getSanityClient } from "../../utils/sanity-utils";
 import md from 'markdown-it';
-import mila from 'markdown-it-link-attributes';;
+import mila from 'markdown-it-link-attributes';
+import { PAGE_TITLE } from "../../utils/settings";
 
 const markdown = md();
 
@@ -31,5 +32,8 @@ export async function load() {
 			...about,
 			content: markdownContent,
 		},
+		seo: {
+			title: `${PAGE_TITLE} - About`,
+		}
 	};
 }

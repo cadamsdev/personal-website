@@ -4,11 +4,6 @@
 	export let data: any;
 </script>
 
-<svelte:head>
-	<title>Chad Adams - Blog</title>
-	<html lang="en" />
-</svelte:head>
-
 {#each data.blogs as blog}
 	<div class="mb-12 animate__animated animate__fadeIn">
 		<a href={`/blog/${blog.slug.current}`} class="hover:underline">

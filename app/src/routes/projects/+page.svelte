@@ -5,11 +5,6 @@
 	export let data: any;
 </script>
 
-<svelte:head>
-	<title>Chad Adams - Projects</title>
-	<html lang="en" />
-</svelte:head>
-
 <div class="mb-4">
 	{#each data.projects as project}
 		<div class="mb-16 animate__animated animate__fadeIn">

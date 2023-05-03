@@ -1,8 +1,13 @@
 <script lang="ts">
+	import { page } from '$app/stores';
   import Header from '../components/Header.svelte';
   import Footer from '../components/Footer.svelte';
 	import '../styles/styles.css';
 </script>
+
+<svelte:head>
+	<title>{$page.data.seo.title}</title>
+</svelte:head>
 
 <div class="flex flex-col h-full">
 	<Header pathname='/' />

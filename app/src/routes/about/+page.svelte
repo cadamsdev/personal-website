@@ -13,11 +13,6 @@
 	const yearsExperience = getYearsSince(new Date('2015-09-01'));
 </script>
 
-<svelte:head>
-	<title>Chad Adams - About</title>
-	<html lang="en" />
-</svelte:head>
-
 <div
 	class="animate__animated animate__fadeIn px-4 sm:px-0 col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 xl:col-start-4 xl:col-span-5 2xl:col-start-4 2xl:col-span-4 flex justify-center py-16"
 >

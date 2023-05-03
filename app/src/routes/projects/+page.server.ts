@@ -1,4 +1,5 @@
 import { getSanityClient } from '../../utils/sanity-utils';
+import { PAGE_TITLE } from '../../utils/settings';
 
 export async function load({ url }) {
 	const currentPage = url.searchParams.get('page') || '1';
@@ -18,6 +19,9 @@ export async function load({ url }) {
 	return {
 		projects: projectData.items,
 		currentPage: currentPage,
-		totalPageCount: Math.ceil(projectData.totalItemCount / 5)
+		totalPageCount: Math.ceil(projectData.totalItemCount / 5),
+		seo: {
+			title: `${PAGE_TITLE} - Projects`,
+		},
 	};
 }
