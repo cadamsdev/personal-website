@@ -7,6 +7,10 @@
 
 <svelte:head>
 	<title>{$page.data.seo.title}</title>
+
+	{#if $page.data.seo.description}
+		<meta name="description" content={$page.data.seo.description}>
+	{/if}
 </svelte:head>
 
 <div class="flex flex-col h-full">

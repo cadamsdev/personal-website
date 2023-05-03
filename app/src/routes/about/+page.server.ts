@@ -28,12 +28,13 @@ export async function load() {
 
 	return {
 		...pageData,
-    about: {
+		about: {
 			...about,
 			content: markdownContent,
 		},
 		seo: {
 			title: `${PAGE_TITLE} - About`,
+			description: 'Chad Adams is a software engineer and web developer based in the United States.',
 		}
 	};
 }
