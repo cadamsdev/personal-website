@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-bright-gray;
+}
+
+.markdown a {
+  @apply text-deep-carrot-orange;
+  @apply underline;
+  @apply hover:no-underline;
+}
+
+.markdown p {
+  @apply my-4;
+}
+
+.markdown {
+  @apply text-lg;
+}
