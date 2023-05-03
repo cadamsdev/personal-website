@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'highlight.js/styles/atom-one-dark.css';
 	import '../../../styles/markdown.css';
 	import Tag from '../../../components/Tag.svelte';
 	export let data: any;
