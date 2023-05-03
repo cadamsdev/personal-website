@@ -3,11 +3,6 @@
 	export let data: any;
 </script>
 
-<svelte:head>
-	<title>Chad Adams - {data.project.title}</title>
-	<html lang="en" />
-</svelte:head>
-
 <div class="mb-8">
 	<h1 class="text-4xl mb-2">
 		{data.project.title}

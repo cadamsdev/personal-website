@@ -15,7 +15,7 @@ markdown.use(mila, {
 export async function load( { params }) {
 	const client = getSanityClient();
 	const blog = await client.fetch(
-		`*[_type == "blog" && slug.current == "${params.slug}"]{_id, _updatedAt, dateCreated, description, title, dateCreated, excerpt, "timeToRead": round(length(content) / 5 / 180), tags, content}[0]`
+		`*[_type == "blog" && slug.current == "${params.slug}"]{_id, _updatedAt, dateCreated, description, seo, title, dateCreated, excerpt, "timeToRead": round(length(content) / 5 / 180), tags, content}[0]`
 	);
 
 	if (!blog) {
@@ -34,6 +34,7 @@ export async function load( { params }) {
     },
 		seo: {
 			title: `${PAGE_TITLE} - ${blog.title}`,
+			description: blog?.seo?.description,
 		},
 	};
 }

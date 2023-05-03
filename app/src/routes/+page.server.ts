@@ -19,7 +19,7 @@ export async function load() {
 		hero,
 		seo: {
 			title: `${PAGE_TITLE} - Home`,
-			description: 'Chad Adams is a software engineer and web developer based in the United States.',
+			description: pageData.seo.description,
 		}
 	};
 }

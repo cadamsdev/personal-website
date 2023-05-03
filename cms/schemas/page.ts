@@ -14,9 +14,9 @@ export default {
       title: 'Slug',
     },
     {
-      name: 'metaDescription',
-      type: 'text',
-      title: 'Meta Description',
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO',
     },
     {
       name: 'pageBuilder',

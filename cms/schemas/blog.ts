@@ -22,9 +22,9 @@ export default {
       title: 'Excerpt',
     },
     {
-      name: 'metaDescription',
-      type: 'text',
-      title: 'Meta Description',
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO',
     },
     {
       name: 'dateCreated',

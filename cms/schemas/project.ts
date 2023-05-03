@@ -32,9 +32,9 @@ export default {
       title: 'Description',
     },
     {
-      name: 'metaDescription',
-      type: 'text',
-      title: 'Meta Description',
+      name: 'seo',
+      type: 'seo',
+      title: 'SEO',
     },
     {
       name: 'content',

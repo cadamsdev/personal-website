@@ -15,7 +15,7 @@ markdown.use(mila, {
 export async function load({ params }) {
 	const client = getSanityClient();
 	const project = await client.fetch(
-		`*[_type == "project" && slug.current == "${params.slug}"]{title, previewImage, tags, description, content, _id}[0]`
+		`*[_type == "project" && slug.current == "${params.slug}"]{title, previewImage, tags, seo, description, content, _id}[0]`
 	);
 
 	if (!project) {
@@ -34,6 +34,7 @@ export async function load({ params }) {
 		},
 		seo: {
 			title: `${PAGE_TITLE} - ${project.title}`,
+			description: project?.seo?.description,
 		},
 	};
 }
