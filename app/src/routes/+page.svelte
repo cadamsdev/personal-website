@@ -2,6 +2,11 @@
 	export let data: any;
 </script>
 
+<svelte:head>
+	<title>Chad Adams - Home</title>
+	<html lang="en" />
+</svelte:head>
+
 <div
 	class="animate__animated animate__fadeInLeft col-span-12 pt-16 pb-8 px-4 sm:py-16 md:py-0 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-5 2xl:col-start-4 2xl:col-span-4 flex justify-center items-center"
 >

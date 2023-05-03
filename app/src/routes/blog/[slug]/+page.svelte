@@ -3,6 +3,11 @@
 	export let data: any;
 </script>
 
+<svelte:head>
+	<title>Chad Adams - {data.blog.title}</title>
+	<html lang="en" />
+</svelte:head>
+
 <div class="max-w-prose mx-auto">
   <div class="mb-8">
 	<h1 class="text-4xl mb-4">
