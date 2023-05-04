@@ -1,4 +1,5 @@
 <script lang="ts">
+  import 'iconify-icon';
   import clsx from 'clsx';
   import { browser } from '$app/environment';
   import { onMount, onDestroy } from 'svelte';
