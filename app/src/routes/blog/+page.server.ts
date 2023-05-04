@@ -7,7 +7,9 @@ export async function load({ url }) {
 
 	const pageDataPromise = client.fetch(`*[_type == "page" && slug == "/blog"][0]`);
 	const blogDataPromise = client.fetch(
-		`{"items": *[_type == "blog"]{_id, _updatedAt, dateCreated, description, title, slug, dateCreated, excerpt, "timeToRead": round(length(content) / 5 / 180), tags} | order(dateCreated desc) [${+currentPage * 5 - 5}...${+currentPage * 5}], "totalItemCount": count(*[_type == "blog"])}`
+		`{"items": *[_type == "blog"]{_id, _updatedAt, dateCreated, description, title, slug, dateCreated, excerpt, "timeToRead": math::max([1, round(length(content) / 5 / 250)]), tags} | order(dateCreated desc) [${
+			+currentPage * 5 - 5
+		}...${+currentPage * 5}], "totalItemCount": count(*[_type == "blog"])}`
 	);
 
 	const [pageData, blogData] = await Promise.all([pageDataPromise, blogDataPromise]);
