@@ -11,9 +11,7 @@
 		{data.blog.title}
 	</h1>
 
-	<div class="mb-2 text-xl text-neutral-600">{data.blog.excerpt}</div>
-
-	<div class="mb-2 text-neutral-600">
+	<div class="mb-4 text-neutral-600">
 		{data.blog.dateCreated &&
 			new Intl.DateTimeFormat('en-US', {
 				dateStyle: 'long'
