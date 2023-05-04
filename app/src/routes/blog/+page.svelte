@@ -20,7 +20,7 @@
 
 		<div class="text-sm mb-2">{blog.timeToRead} min read</div>
 
-		<div class="flex gap-4 mb-4">
+		<div class="flex flex-wrap gap-4 mb-4">
 			{#each blog.tags as tag}
 				<Tag>{tag}</Tag>
 			{/each}

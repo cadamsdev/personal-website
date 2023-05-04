@@ -11,7 +11,7 @@
 	</h1>
 	<div class="mb-2">{data.project.description}</div>
 
-	<div class="flex gap-4">
+	<div class="flex flex-wrap gap-4">
 		{#each data.project.tags as tag}
 			<Tag>{tag}</Tag>
 		{/each}

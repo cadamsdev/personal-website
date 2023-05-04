@@ -20,7 +20,7 @@
 			}).format(new Date(data.blog.dateCreated))}
 	</div>
 
-	<div class="flex gap-4 mb-4">
+	<div class="flex flex-wrap gap-4 mb-4">
 		{#each data.blog.tags as tag}
 			<Tag>{tag}</Tag>
 		{/each}
