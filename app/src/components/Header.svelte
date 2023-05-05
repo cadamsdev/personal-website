@@ -3,8 +3,8 @@
   import clsx from 'clsx';
   import { browser } from '$app/environment';
   import { onMount, onDestroy } from 'svelte';
+  import { page } from '$app/stores';
 
-  export let pathname: string;
   export let component: any = null;
 
   let open = false;
@@ -56,7 +56,7 @@
           <a
             href="/about"
             class={clsx({
-              'border-b-4 border-deep-carrot-orange': pathname === '/about',
+              'border-b-4 border-deep-carrot-orange': $page.url.pathname === '/about',
             })}>About</a
           >
         </li>
@@ -65,7 +65,7 @@
           <a
             href="/blog"
             class={clsx({
-              'border-b-4 border-deep-carrot-orange': pathname === '/blog',
+              'border-b-4 border-deep-carrot-orange': $page.url.pathname === '/blog',
             })}>Blogs</a
           >
         </li>
@@ -74,7 +74,7 @@
           <a
             href="/projects"
             class={clsx({
-              'border-b-4 border-deep-carrot-orange': pathname === '/projects',
+              'border-b-4 border-deep-carrot-orange': $page.url.pathname === '/projects',
             })}
           >
             Projects</a
@@ -85,7 +85,7 @@
           <a
             href="/contact"
             class={clsx({
-              'border-b-4 border-deep-carrot-orange': pathname === '/contact',
+              'border-b-4 border-deep-carrot-orange': $page.url.pathname === '/contact',
             })}
           >
             Contact</a
@@ -118,7 +118,7 @@
           <li class="p-4 text-center">
             <span
               class={clsx({
-                'border-b-4 border-deep-carrot-orange': pathname === '/about',
+                'border-b-4 border-deep-carrot-orange': $page.url.pathname === '/about',
               })}
             >
               About
@@ -130,7 +130,7 @@
           <li class="p-4 text-center">
             <span
               class={clsx({
-                'border-b-4 border-deep-carrot-orange': pathname === '/blog',
+                'border-b-4 border-deep-carrot-orange': $page.url.pathname === '/blog',
               })}
             >
               Blogs
@@ -143,7 +143,7 @@
             <span
               class={clsx({
                 'border-b-4 border-deep-carrot-orange':
-                  pathname === '/projects',
+                  $page.url.pathname === '/projects',
               })}>Projects</span
             >
           </li>
@@ -153,7 +153,7 @@
           <li class="p-4 text-center">
             <span
               class={clsx({
-                'border-b-4 border-deep-carrot-orange': pathname === '/contact',
+                'border-b-4 border-deep-carrot-orange': $page.url.pathname === '/contact',
               })}>Contact</span
             >
           </li>
