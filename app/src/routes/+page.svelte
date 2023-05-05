@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { urlFor } from "../utils/sanity-utils";
+
 	export let data: any;
 </script>
 
@@ -21,5 +23,5 @@
 <div
 	class="col-span-12 md:col-start-8 md:col-span-5 lg:col-start-9 lg:col-span-4 2xl:col-start-8 2xl:col-span-5 flex items-end justify-center"
 >
-	<img src="profile-pic.jpg" alt="Profile picture" />
+	<img src={urlFor(data?.hero?.profileImage?.asset).toString()} alt="" />
 </div>
