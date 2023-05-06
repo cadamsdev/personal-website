@@ -3,7 +3,7 @@
 >
 	<h2 class="text-4xl font-bold text-deep-carrot-orange mb-6">Contact me</h2>
 
-	<form name="contact" data-netlify="true">
+	<form name="contact" method="POST" data-netlify="true">
 		<div class="mb-4">
 			<label for="name" class="block text-japanese-indigo text-lg">Name:</label>
 			<input id="name" name="name" class="px-5 py-3 rounded w-full" required />
