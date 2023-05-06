@@ -18,6 +18,7 @@
 		"@sveltejs/kit": "^1.15.10",
 		"@types/markdown-it": "^12.2.3",
 		"@types/markdown-it-link-attributes": "^3.0.1",
+		"@types/node": "^20.1.0",
 		"@typescript-eslint/eslint-plugin": "^5.59.2",
 		"@typescript-eslint/parser": "^5.59.2",
 		"autoprefixer": "^10.4.14",
