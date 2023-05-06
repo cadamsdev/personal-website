@@ -33,7 +33,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 2rem 0;
 	}
 	button {
 		padding: 0.5rem 1rem;

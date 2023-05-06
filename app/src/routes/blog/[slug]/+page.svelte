@@ -11,16 +11,14 @@
 		{data.blog.title}
 	</h1>
 
-	<div class="mb-2 text-xl text-neutral-600">{data.blog.excerpt}</div>
-
-	<div class="mb-2 text-neutral-600">
+	<div class="mb-4 text-neutral-600">
 		{data.blog.dateCreated &&
 			new Intl.DateTimeFormat('en-US', {
 				dateStyle: 'long'
 			}).format(new Date(data.blog.dateCreated))}
 	</div>
 
-	<div class="flex gap-4 mb-4">
+	<div class="flex flex-wrap gap-4 mb-4">
 		{#each data.blog.tags as tag}
 			<Tag>{tag}</Tag>
 		{/each}

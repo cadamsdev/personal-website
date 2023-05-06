@@ -1,4 +1,5 @@
 <script lang="ts">
+  import 'iconify-icon';
   let today = new Date();
 </script>
 

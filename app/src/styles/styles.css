@@ -11,6 +11,7 @@ html, body {
 
 body {
   @apply bg-bright-gray;
+  @apply overflow-y-scroll;
 }
 
 .markdown a {

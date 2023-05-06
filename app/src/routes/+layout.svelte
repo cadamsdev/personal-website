@@ -14,7 +14,7 @@
 </svelte:head>
 
 <div class="flex flex-col h-full">
-	<Header pathname='/' />
+	<Header />
 
 	<div class="grid grid-cols-12 flex-grow">
 		<slot />
