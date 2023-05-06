@@ -1,7 +1,3 @@
-<script lang="ts">
-	export let data: any;
-</script>
-
 <div
 	class="animate__animated animate__fadeIn py-16 px-4 sm:px-0 col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 xl:col-start-4 xl:col-span-6 2xl:col-start-5 2xl:col-span-4"
 >
