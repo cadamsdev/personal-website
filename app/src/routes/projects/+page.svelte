@@ -22,7 +22,7 @@
 
 			<a
 				href={`/projects/${project.slug.current}`}
-				class="bg-deep-carrot-orange hover:bg-japanese-indigo px-3 py-2 rounded text-sm text-gray-50 font-bold"
+				class="p-2 rounded text-sm font-semibold"
 			>
 				Read more...
 			</a>
