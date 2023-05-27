@@ -104,7 +104,7 @@
 			><strong class="text-5xl font-oleoscript text-deep-carrot-orange">CA</strong>
 		</a>
 
-		<button class="w-8 h-8" on:click={toggleMenu}>
+		<button class="w-8 h-8 touch-manipulation" on:click={toggleMenu}>
 			<iconify-icon icon={open ? 'fa6-solid:xmark' : 'fa6-solid:bars'} width="32" height="32" />
 		</button>
 	</div>
