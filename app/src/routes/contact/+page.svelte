@@ -5,25 +5,24 @@
 
 	<form name="contact" method="POST" data-netlify="true">
 		<div class="mb-4">
-			<label for="name" class="block text-japanese-indigo text-lg">Name:</label>
-			<input id="name" name="name" class="px-5 py-3 rounded w-full" required />
+			<label class="block text-japanese-indigo text-lg">
+				Name:
+				<input name="name" class="px-5 py-3 rounded w-full" required />
+			</label>
 		</div>
 
 		<div class="mb-4">
-			<label for="email" class="block text-japanese-indigo text-lg">Email:</label>
-			<input id="email" name="email" class="px-5 py-3 rounded w-full" required />
+			<label class="block text-japanese-indigo text-lg">
+				Email:
+				<input name="email" class="px-5 py-3 rounded w-full" required />
+			</label>
 		</div>
 
 		<div class="mb-4">
-			<label for="message" class="block text-japanese-indigo text-lg">Message:</label>
-			<textarea
-				id="message"
-				name="message"
-				rows="6"
-				cols="50"
-				class="px-5 py-3 rounded w-full"
-				required
-			/>
+			<label class="block text-japanese-indigo text-lg">
+				Message:
+				<textarea name="message" rows="6" cols="50" class="px-5 py-3 rounded w-full" required />
+			</label>
 		</div>
 
 		<div class="flex justify-end">
