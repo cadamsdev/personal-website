@@ -4,6 +4,7 @@
 	<h2 class="text-4xl font-bold text-deep-carrot-orange mb-6">Contact me</h2>
 
 	<form name="contact" method="POST" data-netlify="true">
+		<input type="hidden" name="form-name" value="contact" />
 		<div class="mb-4">
 			<label class="block text-japanese-indigo text-lg">
 				Name:
