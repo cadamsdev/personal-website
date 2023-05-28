@@ -1,5 +1,6 @@
 <script lang="ts">
   import 'iconify-icon';
+	import { DEV_URL, GITHUB_URL, LINKEDIN_URL } from '../settings';
   let today = new Date();
 </script>
 
@@ -9,7 +10,7 @@
   <div class="text-center">
     <div class="flex justify-center gap-5 mb-2">
       <a
-        href="https://www.linkedin.com/in/chadalen/"
+        href={LINKEDIN_URL}
         target="_blank"
         rel="noreferrer"
         class="hover:brightness-125"
@@ -19,7 +20,7 @@
         ></iconify-icon>
       </a>
       <a
-        href="https://github.com/chadalen"
+        href={GITHUB_URL}
         target="_blank"
         rel="noreferrer"
         class="hover:brightness-125"
@@ -28,7 +29,7 @@
         <iconify-icon icon="mdi:github" width="32" height="32"></iconify-icon>
       </a>
       <a
-        href="https://dev.to/cadams"
+        href={DEV_URL}
         target="_blank"
         rel="noreferrer"
         class="hover:brightness-125"

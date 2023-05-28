@@ -4,6 +4,7 @@
 	import { browser } from '$app/environment';
 	import { onMount, onDestroy } from 'svelte';
 	import { page } from '$app/stores';
+	import { DEV_URL, GITHUB_URL, LINKEDIN_URL } from '../settings';
 
 	export let component: any = null;
 
@@ -158,7 +159,7 @@
 
 				<li class="flex items-center justify-center gap-4 text-deep-carrot-orange my-4">
 					<a
-						href="https://www.linkedin.com/in/chadalen/"
+						href={LINKEDIN_URL}
 						target="_blank"
 						rel="noreferrer"
 						class="hover:brightness-125"
@@ -166,7 +167,7 @@
 						<iconify-icon icon="mdi:linkedin" width="48" height="48" />
 					</a>
 					<a
-						href="https://github.com/chadalen"
+						href={GITHUB_URL}
 						target="_blank"
 						rel="noreferrer"
 						class="hover:brightness-125"
@@ -174,7 +175,7 @@
 						<iconify-icon icon="mdi:github" width="48" height="48" />
 					</a>
 					<a
-						href="https://dev.to/cadams"
+						href={DEV_URL}
 						target="_blank"
 						rel="noreferrer"
 						class="hover:brightness-125"
