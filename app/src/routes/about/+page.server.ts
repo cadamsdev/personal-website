@@ -2,6 +2,7 @@ import { getSanityClient } from "../../utils/sanity-utils";
 import md from 'markdown-it';
 import mila from 'markdown-it-link-attributes';
 import { PAGE_TITLE } from "../../utils/settings";
+import { getYearsSince } from "../../utils/date-utils";
 
 const markdown = md();
 
@@ -24,7 +25,13 @@ export async function load() {
 	}
 
 	const about = pageData.pageBuilder.find((item: any) => item._type === 'about');
-	const markdownContent = markdown.render(about.content);
+	let markdownContent = markdown.render(about.content);
+
+	const age = getYearsSince(new Date('1994-04-29'));
+	const yearsExperience = getYearsSince(new Date('2015-09-01'));
+	
+	markdownContent = markdownContent.replace('{{age}}', age.toString());
+	markdownContent = markdownContent.replace('{{yearsExperience}}', yearsExperience.toString());
 
 	return {
 		...pageData,

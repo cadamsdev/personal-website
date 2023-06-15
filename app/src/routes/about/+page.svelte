@@ -1,16 +1,5 @@
 <script lang="ts">
-	function getYearsSince(pastDate: Date): number {
-		const today = new Date();
-		const yearsDifference = today.getFullYear() - pastDate.getFullYear();
-		const isBeforeBirthday =
-			(today.getMonth(), today.getDate()) < (pastDate.getMonth(), pastDate.getDate());
-		return yearsDifference - +isBeforeBirthday;
-	}
-
 	export let data: any;
-
-	const age = getYearsSince(new Date('1994-04-29'));
-	const yearsExperience = getYearsSince(new Date('2015-09-01'));
 </script>
 
 <div
