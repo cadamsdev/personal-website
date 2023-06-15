@@ -10,7 +10,7 @@ export function getSanityClient(): SanityClient {
 
   client = createClient({
 		projectId: 'dq9cuhrh',
-		dataset: process.env.NODE_ENV === 'production' ? 'production' : 'staging',
+		dataset: import.meta.env.VITE_ENV === 'production' ? 'production' : 'staging',
 		apiVersion: '2021-10-21',
 		useCdn: true
 	});
