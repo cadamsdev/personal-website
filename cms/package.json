@@ -8,6 +8,7 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
+    "build:prod": "ENV=production sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
