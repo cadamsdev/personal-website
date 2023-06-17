@@ -5,6 +5,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { page } from '$app/stores';
 	import { DEV_URL, GITHUB_URL, LINKEDIN_URL } from '../settings';
+	import { isHamburgerMenuOpen } from '../stores/store';
 
 	export let component: any = null;
 
@@ -26,10 +27,12 @@
 
 	function toggleMenu() {
 		open = !open;
+		isHamburgerMenuOpen.set(open);
 	}
 
 	function closeMenu() {
 		open = false;
+		isHamburgerMenuOpen.set(false);
 	}
 
 	function handleClickOutside(event: Event) {
