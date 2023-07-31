@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@sanity/client':
     specifier: ^5.4.2
@@ -7,6 +11,9 @@ dependencies:
   '@sanity/image-url':
     specifier: ^1.0.2
     version: 1.0.2
+  '@storyblok/svelte':
+    specifier: ^3.1.1
+    version: 3.1.1(svelte@3.58.0)
   animate.css:
     specifier: ^4.1.1
     version: 4.1.1
@@ -443,6 +450,21 @@ packages:
   /@sanity/image-url@1.0.2:
     resolution: {integrity: sha512-C4+jb2ny3ZbMgEkLd7Z3C75DsxcTEoE+axXQJsQ75ou0AKWGdVsP351hqK6mJUUxn5HCSlu3vznoh7Yljye4cQ==}
     engines: {node: '>=10.0.0'}
+    dev: false
+
+  /@storyblok/js@2.2.3:
+    resolution: {integrity: sha512-6Bj3SHL+YGMRMSi3LkXNvGKTOTwczACl113+ptb5aJ+9baTlbNlFBn1lF5+FU4hugfpM/egBlQkNQCBNCRB3Qw==}
+    dependencies:
+      storyblok-js-client: 5.12.0
+    dev: false
+
+  /@storyblok/svelte@3.1.1(svelte@3.58.0):
+    resolution: {integrity: sha512-+8LoiNGBUUbePup38V8HdA3KeM2liB9L3bROG81mIPqbv8Vu3ydiZL2P6CRMqx2CA8065yzQXsB51LRKfpQmYQ==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0
+    dependencies:
+      '@storyblok/js': 2.2.3
+      svelte: 3.58.0
     dev: false
 
   /@sveltejs/adapter-auto@2.0.1(@sveltejs/kit@1.15.10):
@@ -2033,6 +2055,10 @@ packages:
     resolution: {integrity: sha512-lgxErLl/7A5+vgIIXsh9MbeukOaCb2axgQ+bKCdIE+ibNT4XNYGNCR1qFEGq6F+YDASXK3Fh/c5FgtZchFolxw==}
     dev: false
 
+  /storyblok-js-client@5.12.0:
+    resolution: {integrity: sha512-g096AwVtRfs+epfvuiQlI4RDTRcn+/h+WxkWQd8rm95MnRzgZMo1LJcg9NQU8Hy172dvrcjH2+DBsPxw0NAoYw==}
+    dev: false
+
   /streamsearch@1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
@@ -2176,7 +2202,6 @@ packages:
   /svelte@3.58.0:
     resolution: {integrity: sha512-brIBNNB76mXFmU/Kerm4wFnkskBbluBDCjx/8TcpYRb298Yh2dztS2kQ6bhtjMcvUhd5ynClfwpz5h2gnzdQ1A==}
     engines: {node: '>= 8'}
-    dev: true
 
   /tailwindcss@3.3.2:
     resolution: {integrity: sha512-9jPkMiIBXvPc2KywkraqsUfbfj+dHDb+JPWtSJa9MLFdrPyazI7q6WX2sUrm7R9eVR7qqv3Pas7EvQFzxKnI6w==}

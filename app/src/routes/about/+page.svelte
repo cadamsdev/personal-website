@@ -1,23 +1,18 @@
-<script lang="ts">
-	export let data: any;
+<script>
+  import { onMount } from "svelte";
+  import { useStoryblokBridge, StoryblokComponent } from "@storyblok/svelte";
+
+  export let data;
+
+  onMount(() => {
+    if (data.story) {
+      useStoryblokBridge(data.story.id, (newStory) => (data.story = newStory));
+    }
+  });
 </script>
 
-<div
-	class="animate__animated animate__fadeIn px-4 sm:px-0 col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 xl:col-start-4 xl:col-span-5 2xl:col-start-4 2xl:col-span-4 flex justify-center py-16"
->
-	<div>
-		<h2 class="text-4xl font-bold text-deep-carrot-orange mb-6">About me</h2>
-		<div
-			class="markdown text-xl leading-relaxed mb-4"
-			contenteditable="false"
-			bind:innerHTML={data.about.content}
-		>
-		</div>
-	</div>
-</div>
-
-<div
-	class="hidden xl:flex xl:border-b-black xl:col-start-9 xl:col-span-4 2xl:col-start-8 2xl:col-span-5 items-end justify-center"
->
-	<img src="profile-pic.jpg" alt="Profile" />
+<div>
+  {#if data.story}
+    <StoryblokComponent blok={data.story.content} />
+  {/if}
 </div>

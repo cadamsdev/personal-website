@@ -16,7 +16,7 @@
 <div class="flex flex-col h-full">
 	<Header />
 
-	<div class="grid grid-cols-12 flex-grow">
+	<div class="flex-grow">
 		<slot />
 	</div>
 
