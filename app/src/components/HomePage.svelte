@@ -5,12 +5,15 @@
 		line1: string;
 		line2: string;
 		line3: string;
+		image: {
+			filename: string;
+		}
 	}
 
 	export let blok: BlokData;
 </script>
 
-<div use:storyblokEditable={blok} class="grid grid-cols-12">
+<div use:storyblokEditable={blok} class="grid grid-cols-12 h-full">
 		<div
 			class="animate__animated animate__fadeInLeft col-span-12 pt-16 pb-8 px-4 sm:py-16 md:py-0 md:col-start-2 md:col-span-6 lg:col-start-3 lg:col-span-5 2xl:col-start-4 2xl:col-span-4 flex justify-center items-center"
 		>
@@ -32,6 +35,6 @@
 		<div
 			class="col-span-12 md:col-start-8 md:col-span-5 lg:col-start-9 lg:col-span-4 2xl:col-start-8 2xl:col-span-5 flex items-end justify-center"
 		>
-			<img src="https://cdn.sanity.io/images/dq9cuhrh/production/65fd61bfe7e67b3e28c5ef68d8554dd97e373538-3144x2884.webp" alt="" />
+			<img src={blok.image.filename} alt="" />
 		</div>
 </div>

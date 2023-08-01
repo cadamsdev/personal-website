@@ -4,6 +4,9 @@
 	type BlokData = {
     heading: string;
 		content: string;
+		image: {
+			filename: string;
+		}
 	};
 
 	export let blok: BlokData;
@@ -11,7 +14,7 @@
   $: contentHTML = renderRichText(blok.content as any);
 </script>
 
-<div use:storyblokEditable={blok} class="grid grid-cols-12">
+<div use:storyblokEditable={blok} class="grid grid-cols-12 h-full">
 	<div
 		class="animate__animated animate__fadeIn px-4 sm:px-0 col-span-12 sm:col-start-2 sm:col-span-10 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 xl:col-start-4 xl:col-span-5 2xl:col-start-4 2xl:col-span-4 flex justify-center py-16"
 	>
@@ -28,6 +31,6 @@
 	<div
 		class="hidden xl:flex xl:border-b-black xl:col-start-9 xl:col-span-4 2xl:col-start-8 2xl:col-span-5 items-end justify-center"
 	>
-		<img src="profile-pic.jpg" alt="Profile" />
+		<img src={blok.image.filename} alt="Profile" />
 	</div>
 </div>
