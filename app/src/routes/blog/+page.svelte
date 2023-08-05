@@ -9,5 +9,5 @@
 	<BlogCard blog={blog} />
 {/each}
 
-<Pagination totalPageCount={data.totalPageCount} currentPage={1} />
+<Pagination totalPageCount={data.totalPageCount} currentPage={data.currentPage} />
 
