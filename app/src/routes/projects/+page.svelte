@@ -9,4 +9,4 @@
 	<ProjectCard project={project} />
 {/each}
 
-<Pagination totalPageCount={data.totalPageCount} currentPage={1} />
+<Pagination totalPageCount={data.totalPageCount} currentPage={data.currentPage} />
