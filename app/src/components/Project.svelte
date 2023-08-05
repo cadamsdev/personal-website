@@ -44,19 +44,22 @@
 	};
 
 	export let blok: BlokData;
-	$: articleHTML = markdown.render(blok.content);
+	$: articleHTML = markdown.render(blok.content || '');
 </script>
 
 <div use:storyblokEditable={blok} class="max-w-prose mx-auto">
 	{#if blok}
     <div class="mb-8">
-      <h1 class="text-4xl mb-2">
-        {blok.title}
-      </h1>
-      <div class="mb-2">{blok.description}</div>
+			<h1 class="text-4xl mb-2">
+				{blok.title || ''}
+			</h1>
+
+      {#if blok.description}
+				<div class="mb-2">{blok.description}</div>
+			{/if}
 
       <div class="flex flex-wrap gap-4">
-        {#each blok.tags || [] as tag}
+        {#each blok?.tags || [] as tag}
           <Tag>{tag}</Tag>
         {/each}
       </div>
