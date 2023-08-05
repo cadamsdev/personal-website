@@ -5,6 +5,7 @@
 	import mdUtils from 'markdown-it/lib/common/utils';
 	import hljs from 'highlight.js';
 	import mila from 'markdown-it-link-attributes';
+	import 'highlight.js/styles/atom-one-dark.css';
 	import '../styles/markdown.css';
 
 	const markdown = md({
