@@ -1,10 +1,12 @@
 <script lang="ts">
-	import Tag from '../components/Tag.svelte';
 	import { storyblokEditable } from '@storyblok/svelte';
 	import md from 'markdown-it';
 	import mdUtils from 'markdown-it/lib/common/utils';
 	import hljs from 'highlight.js';
 	import mila from 'markdown-it-link-attributes';
+
+	import Tag from '../components/Tag.svelte';
+
 	import 'highlight.js/styles/atom-one-dark.css';
 	import '../styles/markdown.css';
 
@@ -37,8 +39,8 @@
 	type BlokData = {
 		title: string;
     description: string;
-		tags: string[];
 		content: string;
+		tags: string[];
 	};
 
 	export let blok: BlokData;
@@ -54,7 +56,7 @@
       <div class="mb-2">{blok.description}</div>
 
       <div class="flex flex-wrap gap-4">
-        {#each blok.tags as tag}
+        {#each blok.tags || [] as tag}
           <Tag>{tag}</Tag>
         {/each}
       </div>
