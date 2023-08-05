@@ -18,7 +18,7 @@
 </script>
 
 <div class="mb-16 animate__animated animate__fadeIn">
-	<a href={`/projects/${project.full_slug}`} class="no-underline hover:underline">
+	<a href={project.full_slug} class="no-underline hover:underline">
 		<h2 class="text-2xl md:text-3xl">{project.content.title}</h2>
 	</a>
 	<small class="block text-lg my-2">{project.content.description}</small>
@@ -30,7 +30,7 @@
 
 	<img class="mb-4" src={project.content.image.filename} alt="" />
 
-	<a href={`/projects/${project.full_slug}`} class="p-2 rounded text-sm font-semibold">
+	<a href={project.full_slug} class="p-2 rounded text-sm font-semibold">
 		Read more...
 	</a>
 </div>
