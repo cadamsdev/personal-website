@@ -6,6 +6,7 @@ export async function load({ parent }) {
 		starts_with: 'blog/',
 		is_startpage: 0,
 		excluding_fields: 'content',
+		sort_by: 'content.dateCreated:desc',
 	});
 
 	const headers = new Headers(headersData);
@@ -16,6 +17,6 @@ export async function load({ parent }) {
 		seo: {
 			title: 'test',
 			description: 'test'
-		}
+		},
 	};
 }
