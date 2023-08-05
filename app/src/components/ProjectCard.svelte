@@ -8,7 +8,7 @@
 			description: string;
 			dateCreated: string;
 			tags: string[];
-			image: {
+			previewImage: {
 				filename: string;
 			};
 		};
@@ -28,7 +28,7 @@
 		{/each}
 	</div>
 
-	<img class="mb-4" src={project.content.image.filename} alt="" />
+	<img class="mb-4" src={project.content.previewImage.filename} alt="" />
 
 	<a href={project.full_slug} class="p-2 rounded text-sm font-semibold">
 		Read more...
