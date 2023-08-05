@@ -10,8 +10,8 @@
 
 {#key blok}
   <div use:storyblokEditable={blok} class="h-full">
-    {#each blok.body as blok}
-      <StoryblokComponent {blok} />
+    {#each blok?.body || [] as block}
+      <StoryblokComponent blok={block} />
     {/each}
   </div>
 {/key}
