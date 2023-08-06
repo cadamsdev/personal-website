@@ -19,8 +19,8 @@ export async function load({ parent, url }) {
 		totalPageCount: Math.ceil(totalStories / maxStoriesPerPage),
 		currentPage: page,
 		seo: {
-			title: 'test',
-			description: 'test'
+			title: data.story?.content?.seo?.title || '',
+			description: data.story?.content?.seo?.description || ''
 		}
 	};
 }

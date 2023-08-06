@@ -8,13 +8,13 @@
 	import '../styles/styles.css';
 </script>
 
-<!-- <svelte:head>
+<svelte:head>
 	<title>{$page.data.seo.title}</title>
 
 	{#if $page.data.seo.description}
 		<meta name="description" content={$page.data.seo.description}>
 	{/if}
-</svelte:head> -->
+</svelte:head>
 
 <div class="flex flex-col h-full">
 	<Header />

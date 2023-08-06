@@ -7,8 +7,8 @@ export async function load({ parent }) {
 	return {
 		story: data.story,
 		seo: {
-			title: 'test',
-			description: 'test'
+			title: data.story?.content?.seo?.title || '',
+			description: data.story?.content?.seo?.description || '',
 		}
 	};
 }
