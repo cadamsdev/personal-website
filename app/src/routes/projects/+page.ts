@@ -2,14 +2,20 @@ export async function load({ parent, url }) {
 	const { storyblokApi } = await parent();
 	const currentPage = +(url.searchParams.get('page') || '1');
 	const maxStoriesPerPage = 5;
-	const { data, headers: headersData } = await storyblokApi.get('cdn/stories', {
-		version: 'draft',
-		starts_with: 'projects/',
-		is_startpage: 0,
-		excluding_fields: 'content',
-		page: currentPage,
-		per_page: maxStoriesPerPage
-	});
+
+	const [{ data, headers: headersData }, { data: pageData } ] = await Promise.all([
+		storyblokApi.get('cdn/stories', {
+			version: 'draft',
+			starts_with: 'projects/',
+			is_startpage: 0,
+			excluding_fields: 'content',
+			page: currentPage,
+			per_page: maxStoriesPerPage
+		}),
+		storyblokApi.get('cdn/stories/projects', {
+			version: 'draft'
+		}),
+	]);
 
 	const headers = new Headers(headersData);
 	const totalPageCount = +(headers.get('total') || '1');
@@ -18,8 +24,8 @@ export async function load({ parent, url }) {
 		totalPageCount: Math.ceil(totalPageCount / maxStoriesPerPage),
 		currentPage,
 		seo: {
-			title: data.story?.content?.seo?.title || '',
-			description: data.story?.content?.seo?.description || '',
+			title: pageData.story?.content?.seo?.title || 'Projects',
+			description: pageData.story?.content?.seo?.description || ''
 		}
 	};
 }
