@@ -38,6 +38,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/oleo-script": "^5.0.8",
+		"@fontsource/source-sans-pro": "^5.0.8",
 		"@sanity/client": "^5.4.2",
 		"@sanity/image-url": "^1.0.2",
 		"@storyblok/svelte": "^3.1.1",
