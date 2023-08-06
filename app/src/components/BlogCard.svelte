@@ -7,6 +7,7 @@
     full_slug: string;
     content: {
       title: string;
+      excerpt: string;
       dateCreated: string;
       tags: string[];
     }
@@ -19,6 +20,12 @@
   <a href={blog.full_slug} class="hover:underline inline-block mb-2">
     <h2 class="text-2xl md:text-3xl">{blog.content.title}</h2>
   </a>
+
+  {#if blog.content.excerpt}
+    <div class="mb-2">
+      {blog.content.excerpt}
+    </div>
+  {/if}
 
   <div class="mb-2">
     {formatDate(blog.content.dateCreated)}
