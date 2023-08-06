@@ -16,8 +16,5 @@ export async function load() {
 	});
 
 	const storyblokApi = await useStoryblokApi();
-
-	return {
-		storyblokApi: storyblokApi
-	};
+	return { storyblokApi };
 }
