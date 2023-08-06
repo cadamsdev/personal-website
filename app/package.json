@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
+		"ssl": "local-ssl-proxy --source 3000 --target 5173 --cert localhost.pem --key localhost-key.pem",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -37,8 +38,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/oleo-script": "^5.0.8",
+		"@fontsource/source-sans-pro": "^5.0.8",
 		"@sanity/client": "^5.4.2",
 		"@sanity/image-url": "^1.0.2",
+		"@storyblok/svelte": "^3.1.1",
 		"animate.css": "^4.1.1",
 		"clsx": "^1.2.1",
 		"highlight.js": "^11.8.0",

@@ -1,21 +1,18 @@
 <script lang="ts">
-	import 'highlight.js/styles/atom-one-dark.css';
-	import '../../../styles/markdown.css';
-	import Tag from '../../../components/Tag.svelte';
-	export let data: any;
+  import 'highlight.js/styles/atom-one-dark.css';
+  import '../../../styles/markdown.css';
+  import { onMount } from "svelte";
+  import { useStoryblokBridge, StoryblokComponent } from "@storyblok/svelte";
+
+  export let data;
+
+  onMount(() => {
+    if (data.story) {
+      useStoryblokBridge(data.story.id, (newStory) => (data.story = newStory));
+    }
+  });
 </script>
 
-<div class="mb-8">
-	<h1 class="text-4xl mb-2">
-		{data.project.title}
-	</h1>
-	<div class="mb-2">{data.project.description}</div>
-
-	<div class="flex flex-wrap gap-4">
-		{#each data.project.tags as tag}
-			<Tag>{tag}</Tag>
-		{/each}
-	</div>
-</div>
-
-<article class="markdown" contenteditable="false" bind:innerHTML={data.project.content} />
+{#if data.story}
+  <StoryblokComponent blok={data.story.content} />
+{/if}

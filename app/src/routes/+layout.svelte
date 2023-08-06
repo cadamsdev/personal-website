@@ -2,6 +2,9 @@
 	import { page } from '$app/stores';
   import Header from '../components/Header.svelte';
   import Footer from '../components/Footer.svelte';
+	import '@fontsource/oleo-script/700.css';
+	import '@fontsource/source-sans-pro/400.css';
+	import '@fontsource/source-sans-pro/700.css';
 	import '../styles/styles.css';
 </script>
 
@@ -16,7 +19,7 @@
 <div class="flex flex-col h-full">
 	<Header />
 
-	<div class="grid grid-cols-12 flex-grow">
+	<div class="flex-grow">
 		<slot />
 	</div>
 
